@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quem Somos | Supermercado Pedralli</title>
+  <meta name="description" content="Conheça a história de 25 anos do Supermercado Pedralli, de um armazém familiar em 1988 à referência de qualidade em Viamão-RS." />
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- FontAwesome for Premium Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind.config.js"></script>
+
+  <!-- GSAP & ScrollTrigger for Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-surface text-primary overflow-x-hidden antialiased">
+
+  <!-- BEGIN: Preloader overlay -->
+  <div class="fixed inset-0 bg-primary z-50 flex flex-col items-center justify-center select-none" id="preloader">
+    <div class="overflow-hidden mb-6">
+      <img alt="Pedralli" class="h-10 w-auto brightness-0 invert translate-y-full" id="preloader-logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4"/>
+    </div>
+    <div class="w-48 h-[1px] bg-white/20 relative overflow-hidden rounded-full">
+      <div class="absolute left-0 top-0 h-full bg-gold-accent w-0" id="preloader-bar"></div>
+    </div>
+  </div>
+  <!-- END: Preloader overlay -->
+
+  <!-- BEGIN: Mobile Menu Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-[#001e37]/98 backdrop-blur-lg hidden flex flex-col justify-between p-8 text-white">
+    <div class="flex justify-between items-center pb-6 border-b border-white/10">
+      <img alt="Pedralli" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4"/>
+      <button id="menu-close" class="text-white text-2xl hover:text-gold-accent transition-colors" aria-label="Fechar menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <nav class="my-auto py-6">
+      <ul class="flex flex-col gap-5 text-base sm:text-lg font-semibold tracking-[0.2em] uppercase text-white/80">
+        <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="index.html">início</a></li>
+        <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="quem-somos.html">quem somos</a></li>
+        <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="index.html#setores">setores</a></li>
+        <li><a class="hover:text-gold-accent transition-colors text-gold-accent block py-1.5" href="index.html#destaques">ofertas</a></li>
+        <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="index.html#bazar">bazar</a></li>
+        <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="index.html#setores">serviços</a></li>
+        <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="#contato">contato</a></li>
+      </ul>
+    </nav>
+    <div class="space-y-6 pt-6 border-t border-white/10">
+      <a class="bg-gold-accent text-white py-3.5 px-6 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-amber-600 transition-all duration-300 flex items-center justify-center gap-2" href="#">
+        WhatsApp <i class="fa-brands fa-whatsapp text-sm"></i>
+      </a>
+      <div class="text-[9px] tracking-[0.2em] uppercase text-white/40 text-center font-bold">
+        Segunda a Sábado: 08h às 21h | Domingo: 08h às 20h
+      </div>
+    </div>
+  </div>
+  <!-- END: Mobile Menu Drawer -->
+
+  <!-- BEGIN: Top Banner Line -->
+  <div class="bg-primary text-white py-3 px-6 border-b border-white/5 text-[10px] tracking-[0.25em] uppercase font-bold text-center">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+      <span>Curadoria selecionada para mercado e bazar na sua mesa</span>
+      <span class="hidden md:inline">•</span>
+      <span>Segunda a Sábado: 08h às 21h | Domingo: 08h às 20h</span>
+    </div>
+  </div>
+  <!-- END: Top Banner Line -->
+
+  <!-- BEGIN: Main Header -->
+  <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-outline-variant/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center transform hover:opacity-85 transition-opacity">
+        <img alt="Pedralli" class="h-8 sm:h-9 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4"/>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="hidden lg:block">
+        <ul class="flex items-center gap-8 text-xs font-semibold tracking-widest uppercase text-primary/80">
+          <li><a class="awwwards-link hover:text-primary transition-colors" href="index.html">início</a></li>
+          <li><a class="awwwards-link text-primary font-bold" href="quem-somos.html">quem somos</a></li>
+          <li><a class="awwwards-link hover:text-primary transition-colors" href="index.html#setores">setores</a></li>
+          <li><a class="awwwards-link hover:text-primary transition-colors text-gold-accent" href="index.html#destaques">ofertas</a></li>
+          <li><a class="awwwards-link hover:text-primary transition-colors" href="index.html#bazar">bazar</a></li>
+          <li><a class="awwwards-link hover:text-primary transition-colors" href="index.html#setores">serviços</a></li>
+          <li><a class="awwwards-link hover:text-primary transition-colors" href="#contato">contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA Actions -->
+      <div class="flex items-center gap-3 sm:gap-5">
+        <a class="border border-primary text-primary p-2 sm:px-6 sm:py-2.5 rounded-full font-bold text-xs uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 aspect-square sm:aspect-auto w-9 h-9 sm:w-auto sm:h-auto" href="index.html#setores" title="Nossa Loja">
+          <span class="hidden sm:inline">Nossa Loja</span> <i class="fa-solid fa-store text-[10px]"></i>
+        </a>
+        <button class="lg:hidden text-primary text-xl p-1" id="menu-toggle" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+  <!-- END: Main Header -->
+
+  <!-- BEGIN: Editorial Sub-Hero Section with full background cover -->
+  <section class="relative w-full h-[35vh] min-h-[280px] flex items-center justify-center text-center overflow-hidden hero-custom-bg border-b border-outline-variant/30">
+    <!-- Dark transparent overlay to integrate sub-hero beautifully with original image and white text -->
+    <div class="absolute inset-0 bg-[#001e37]/75 backdrop-blur-[2px] z-0"></div>
+    
+    <div class="max-w-4xl mx-auto px-6 relative z-10 space-y-4">
+      <span class="text-xs font-bold tracking-[0.25em] text-gold-accent uppercase">Nossa Jornada</span>
+      <h1 class="text-reveal text-5xl sm:text-6xl font-light leading-tight font-serif-editorial text-white">Quem Somos</h1>
+      <p class="text-xs sm:text-sm text-white/70 max-w-lg mx-auto font-light leading-relaxed">
+        Uma história de dedicação ao atendimento qualificado, à comunidade de Viamão-RS e ao compromisso constante com a qualidade de nossos produtos.
+      </p>
+    </div>
+  </section>
+  <!-- END: Editorial Sub-Hero Section -->
+
+  <!-- BEGIN: Quem Somos Content (Editorial Split Layout) -->
+  <section class="bg-surface py-16 sm:py-24 lg:py-32 border-b border-outline-variant/40 w-full relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+      
+      <!-- Left Column: Sticky Brand Story -->
+      <div class="lg:col-span-5 space-y-8 lg:sticky lg:top-28 lg:self-start">
+        <div class="space-y-3">
+          <div class="text-xs font-bold tracking-widest text-gold-accent uppercase">História</div>
+          <h2 class="text-reveal text-3xl sm:text-4xl font-light text-primary leading-tight font-serif-editorial">
+            Uma história de sucesso
+          </h2>
+        </div>
+        
+        <div class="space-y-6 text-sm sm:text-base text-primary/70 leading-relaxed font-light">
+          <p>
+            O comércio Pedralli tem uma rica história de evolução no varejo em seus 25 anos de atividades. Localizado na Cidade de Viamão-RS, o Pedralli é referência em supermercado, pois opta pela qualidade de seus produtos, pela moderna estrutura física de loja e pela capacidade de oferecer serviços que satisfaçam os exigentes consumidores da região.
+          </p>
+          <p>
+            O Pedralli iniciou suas atividades na forma de armazém em 1988 com uma política administrativa simples, não deixando, por isso, de ter um diferencial: o atendimento qualificado. Os anos passaram e o armazém virou mercado, pois já não era mais possível oferecer suporte ao grande número de clientes que o Pedralli obtinha com seu sucesso e com seu reconhecimento frente à população de Viamão.
+          </p>
+          <p>
+            Hoje, o Supermercado Pedralli possui um grande fluxo de clientes, tem serviços de açougue, de padaria, de confeitaria, de fruteira, de bazar e de rotisseria, emprega mais de 100 viamonenses diretamente, é reconhecido pela sua qualidade e apresenta uma estrutura física condizente com sua grandeza histórica. O Supermercado Pedralli é 100% viamonense, é orgulho para essa terra, e valoriza a cidade.
+          </p>
+          <p class="font-serif-editorial italic text-primary text-lg font-semibold mt-4">
+            "Compre em Viamão com Qualidade."
+          </p>
+        </div>
+
+        <!-- Accordion/Grid for Mission, Vision, Values -->
+        <div class="space-y-4 pt-6 border-t border-outline-variant/60">
+          
+          <div class="border border-outline-variant/60 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md hover:border-gold-accent/40 transition-all duration-500">
+            <h4 class="text-sm font-bold tracking-wider uppercase text-primary mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-bullseye text-gold-accent"></i> Missão
+            </h4>
+            <p class="text-xs text-primary/70 leading-relaxed font-light">
+              Atender às necessidades dos clientes de forma ética e responsável, buscando conciliar interesses com colaboradores, parceiros, fornecedores e comunidade, de forma a participar de uma construção social coletiva.
+            </p>
+          </div>
+
+          <div class="border border-outline-variant/60 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md hover:border-gold-accent/40 transition-all duration-500">
+            <h4 class="text-sm font-bold tracking-wider uppercase text-primary mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-eye text-gold-accent"></i> Visão
+            </h4>
+            <p class="text-xs text-primary/70 leading-relaxed font-light">
+              Até o ano de 2020, o Grupo Pedralli será reconhecido pela excelência na oferta de serviços e produtos nas suas áreas de atuação, trabalhando com fidelidade aos seus princípios de qualidade e compromisso com o cliente.
+            </p>
+          </div>
+
+          <div class="border border-outline-variant/60 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md hover:border-gold-accent/40 transition-all duration-500">
+            <h4 class="text-sm font-bold tracking-wider uppercase text-primary mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-heart text-gold-accent"></i> Valores
+            </h4>
+            <ul class="grid grid-cols-2 gap-2 text-xs font-semibold text-primary/80">
+              <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-gold-accent text-[10px]"></i> Qualidade</li>
+              <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-gold-accent text-[10px]"></i> Amor ao Trabalho</li>
+              <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-gold-accent text-[10px]"></i> Simplicidade</li>
+              <li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-gold-accent text-[10px]"></i> Inovação</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Timeline Gallery -->
+      <div class="lg:col-span-7 space-y-12">
+        <div class="text-xs font-bold tracking-widest text-primary/50 uppercase pb-3 border-b border-outline-variant/60 flex justify-between items-center">
+          <span>Galeria Histórica / Linha do Tempo</span>
+          <span class="text-[9px] font-normal text-primary/40 flex items-center gap-1"><i class="fa-solid fa-circle-info"></i> Clique nas fotos para ampliar</span>
+        </div>
+
+        <div class="relative pl-6 sm:pl-8 border-l border-primary/10 space-y-16 py-4">
+          
+          <!-- Timeline Item 1 -->
+          <div class="relative group timeline-item">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface border-4 border-gold-accent group-hover:scale-125 transition-transform duration-300 z-10"></div>
+            <span class="text-7xl font-bold font-serif-editorial italic text-primary/5 absolute right-0 -top-6 select-none group-hover:text-gold-accent/10 transition-colors duration-500">1988</span>
+            <span class="text-2xl font-bold font-serif-editorial text-primary group-hover:text-gold-accent transition-colors">1988</span>
+            <span class="block text-xs font-bold text-primary/40 uppercase tracking-widest mt-1">O Início</span>
+            <h3 class="text-lg font-bold text-primary mt-2">Loja em 1988</h3>
+            <p class="text-xs text-primary/60 leading-relaxed mt-1 font-light max-w-lg">Início das atividades como armazém com política simples e atendimento qualificado.</p>
+            <div class="mt-4 overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[16/10] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+              <img alt="Loja em 1988" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                  <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="relative group timeline-item">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface border-4 border-gold-accent group-hover:scale-125 transition-transform duration-300 z-10"></div>
+            <span class="text-7xl font-bold font-serif-editorial italic text-primary/5 absolute right-0 -top-6 select-none group-hover:text-gold-accent/10 transition-colors duration-500">1995</span>
+            <span class="text-2xl font-bold font-serif-editorial text-primary group-hover:text-gold-accent transition-colors">1995</span>
+            <span class="block text-xs font-bold text-primary/40 uppercase tracking-widest mt-1">Expansão</span>
+            <h3 class="text-lg font-bold text-primary mt-2">Construção da primeira parte da sede atual 1995</h3>
+            <p class="text-xs text-primary/60 leading-relaxed mt-1 font-light max-w-lg">O crescimento da demanda de clientes impulsiona as primeiras grandes obras da estrutura definitiva.</p>
+            <div class="mt-4 overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[16/10] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+              <img alt="Construção da primeira parte da sede atual 1995" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                  <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="relative group timeline-item">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface border-4 border-gold-accent group-hover:scale-125 transition-transform duration-300 z-10"></div>
+            <span class="text-7xl font-bold font-serif-editorial italic text-primary/5 absolute right-0 -top-6 select-none group-hover:text-gold-accent/10 transition-colors duration-500">1996</span>
+            <span class="text-2xl font-bold font-serif-editorial text-primary group-hover:text-gold-accent transition-colors">1996</span>
+            <span class="block text-xs font-bold text-primary/40 uppercase tracking-widest mt-1">Conclusão</span>
+            <h3 class="text-lg font-bold text-primary mt-2">Sede pronta em 1996</h3>
+            <p class="text-xs text-primary/60 leading-relaxed mt-1 font-light max-w-lg">Entrega oficial da nova sede, abrindo espaço para mais variedade e conforto.</p>
+            <div class="mt-4 overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[16/10] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+              <img alt="Sede pronta em 1996" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                  <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 4 -->
+          <div class="relative group timeline-item">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface border-4 border-gold-accent group-hover:scale-125 transition-transform duration-300 z-10"></div>
+            <span class="text-7xl font-bold font-serif-editorial italic text-primary/5 absolute right-0 -top-6 select-none group-hover:text-gold-accent/10 transition-colors duration-500">1997</span>
+            <span class="text-2xl font-bold font-serif-editorial text-primary group-hover:text-gold-accent transition-colors">1997</span>
+            <span class="block text-xs font-bold text-primary/40 uppercase tracking-widest mt-1">Consolidação</span>
+            <h3 class="text-lg font-bold text-primary mt-2">Mercado Pedralli 1997</h3>
+            <p class="text-xs text-primary/60 leading-relaxed mt-1 font-light max-w-lg">Consolidação do negócio como um mercado de referência regional em Viamão.</p>
+            <div class="mt-4 overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[16/10] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+              <img alt="Mercado Pedralli 1997" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                  <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 5 -->
+          <div class="relative group timeline-item">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface border-4 border-gold-accent group-hover:scale-125 transition-transform duration-300 z-10"></div>
+            <span class="text-7xl font-bold font-serif-editorial italic text-primary/5 absolute right-0 -top-6 select-none group-hover:text-gold-accent/10 transition-colors duration-500">1998</span>
+            <span class="text-2xl font-bold font-serif-editorial text-primary group-hover:text-gold-accent transition-colors">1998</span>
+            <span class="block text-xs font-bold text-primary/40 uppercase tracking-widest mt-1">Gestão</span>
+            <h3 class="text-lg font-bold text-primary mt-2">Diretores em trabalho & Fruteira 1998</h3>
+            <p class="text-xs text-primary/60 leading-relaxed mt-1 font-light max-w-lg">Administração familiar presente e inauguração do novo espaço Hortifruti.</p>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+              <div class="overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[4/3] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+                <img alt="Diretores do Pedralli em trabalho 1998" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+                <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                  <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[4/3] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+                <img alt="Fruteira Pedralli 1998" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1610348725511-27a812b7a4fc?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+                <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                  <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 6 -->
+          <div class="relative group timeline-item">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface border-4 border-gold-accent group-hover:scale-125 transition-transform duration-300 z-10"></div>
+            <span class="text-7xl font-bold font-serif-editorial italic text-primary/5 absolute right-0 -top-6 select-none group-hover:text-gold-accent/10 transition-colors duration-500">1999</span>
+            <span class="text-2xl font-bold font-serif-editorial text-primary group-hover:text-gold-accent transition-colors">1999</span>
+            <span class="block text-xs font-bold text-primary/40 uppercase tracking-widest mt-1">Progresso</span>
+            <h3 class="text-lg font-bold text-primary mt-2">Mercado Pedralli 1999</h3>
+            <p class="text-xs text-primary/60 leading-relaxed mt-1 font-light max-w-lg">Ampliação contínua com foco na satisfação dos consumidores exigentes da região.</p>
+            <div class="mt-4 overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[16/10] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+              <img alt="Mercado Pedralli 1999" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                  <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 7 -->
+          <div class="relative group timeline-item">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface border-4 border-gold-accent group-hover:scale-125 transition-transform duration-300 z-10"></div>
+            <span class="text-7xl font-bold font-serif-editorial italic text-primary/5 absolute right-0 -top-6 select-none group-hover:text-gold-accent/10 transition-colors duration-500">2003</span>
+            <span class="text-2xl font-bold font-serif-editorial text-primary group-hover:text-gold-accent transition-colors">2003</span>
+            <span class="block text-xs font-bold text-primary/40 uppercase tracking-widest mt-1">Reabertura</span>
+            <h3 class="text-lg font-bold text-primary mt-2">Reinauguração & Fruteira em 2003</h3>
+            <p class="text-xs text-primary/60 leading-relaxed mt-1 font-light max-w-lg">Reforma estrutural da loja para abrigar um fluxo cada vez maior de clientes diários.</p>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+              <div class="overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[4/3] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+                <img alt="Reinauguração Supermercado Pedralli em 2003" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+                <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                  <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[4/3] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+                <img alt="Fruteira Pedralli em 2003" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1610348725511-27a812b7a4fc?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+                <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                  <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 8 -->
+          <div class="relative group timeline-item">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface border-4 border-gold-accent group-hover:scale-125 transition-transform duration-300 z-10"></div>
+            <span class="text-7xl font-bold font-serif-editorial italic text-primary/5 absolute right-0 -top-6 select-none group-hover:text-gold-accent/10 transition-colors duration-500">2005</span>
+            <span class="text-2xl font-bold font-serif-editorial text-primary group-hover:text-gold-accent transition-colors">2005</span>
+            <span class="block text-xs font-bold text-primary/40 uppercase tracking-widest mt-1">Supermercado</span>
+            <h3 class="text-lg font-bold text-primary mt-2">Supermercado Pedralli em 2005</h3>
+            <p class="text-xs text-primary/60 leading-relaxed mt-1 font-light max-w-lg">Reconhecimento como o supermercado referência e orgulho da terra de Viamão.</p>
+            <div class="mt-4 overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[16/10] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+              <img alt="Supermercado Pedralli em 2005" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                  <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 9 -->
+          <div class="relative group timeline-item">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface border-4 border-gold-accent group-hover:scale-125 transition-transform duration-300 z-10"></div>
+            <span class="text-7xl font-bold font-serif-editorial italic text-primary/5 absolute right-0 -top-6 select-none group-hover:text-gold-accent/10 transition-colors duration-500">2013</span>
+            <span class="text-2xl font-bold font-serif-editorial text-primary group-hover:text-gold-accent transition-colors">2013</span>
+            <span class="block text-xs font-bold text-primary/40 uppercase tracking-widest mt-1">Grandeza</span>
+            <h3 class="text-lg font-bold text-primary mt-2">Reinauguração da loja em 2013</h3>
+            <p class="text-xs text-primary/60 leading-relaxed mt-1 font-light max-w-lg">Inauguração da grandiosa e moderna estrutura física condizente com sua história de sucesso.</p>
+            <div class="mt-4 overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[16/10] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+              <img alt="Reinauguração da loja em 2013" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                  <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 10 -->
+          <div class="relative group timeline-item">
+            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-surface border-4 border-gold-accent group-hover:scale-125 transition-transform duration-300 z-10"></div>
+            <span class="text-7xl font-bold font-serif-editorial italic text-primary/5 absolute right-0 -top-6 select-none group-hover:text-gold-accent/10 transition-colors duration-500">Recente</span>
+            <span class="text-2xl font-bold font-serif-editorial text-primary group-hover:text-gold-accent transition-colors">Recente</span>
+            <span class="block text-xs font-bold text-primary/40 uppercase tracking-widest mt-1">Gourmet</span>
+            <h3 class="text-lg font-bold text-primary mt-2">Pedralli Gourmet & Recepção</h3>
+            <p class="text-xs text-primary/60 leading-relaxed mt-1 font-light max-w-lg">Lançamento do espaço gastronômico interno oferecendo serviços de buffet gourmet e recepção premium.</p>
+            <div class="mt-4 overflow-hidden rounded-2xl border border-outline-variant/60 aspect-[16/10] bg-surface-container relative group-hover:shadow-xl transition-shadow duration-500 cursor-pointer timeline-item-img-container">
+              <img alt="Inauguração Restaurante Pedralli Gourmet" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600" loading="lazy" />
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                <span class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-300">
+                  <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- END: Quem Somos Content -->
+
+  <!-- BEGIN: Lightbox Gallery Modal -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-primary/95 hidden flex items-center justify-center p-4 backdrop-blur-md opacity-0 transition-opacity duration-300">
+    <button id="close-lightbox" class="absolute top-6 right-6 text-white text-3xl hover:text-gold-accent transition-colors" aria-label="Fechar">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="max-w-4xl w-full flex flex-col items-center gap-6">
+      <div class="relative w-full max-h-[50vh] sm:max-h-[70vh] aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-3xl border border-white/10 shadow-2xl bg-black">
+        <img id="lightbox-img" alt="Foto Ampliada" class="w-full h-full object-contain" src="" />
+      </div>
+      <div class="text-center space-y-2 select-none">
+        <span id="lightbox-year" class="text-2xl font-bold font-serif-editorial text-gold-accent"></span>
+        <h3 id="lightbox-title" class="text-white text-lg font-bold"></h3>
+        <p id="lightbox-desc" class="text-white/60 text-xs sm:text-sm font-light max-w-xl mx-auto"></p>
+      </div>
+    </div>
+  </div>
+  <!-- END: Lightbox Gallery Modal -->
+
+  <!-- BEGIN: Footer -->
+  <footer id="contato" class="bg-primary text-white pt-16 pb-12 sm:pt-24 w-full border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 sm:gap-16">
+      
+      <!-- Info Column -->
+      <div class="space-y-6 lg:col-span-2">
+        <img alt="Pedralli" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4"/>
+        <p class="text-xs sm:text-sm text-white/55 leading-relaxed font-light max-w-sm">
+          Comprometidos em selecionar o melhor frescor, oferecer preços equilibrados e entregar a experiência acolhedora que você merece.
+        </p>
+        <div class="flex gap-4">
+          <a class="w-8 h-8 rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-primary flex items-center justify-center transition-all duration-300" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+          <a class="w-8 h-8 rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-primary flex items-center justify-center transition-all duration-300" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
+          <a class="w-8 h-8 rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-primary flex items-center justify-center transition-all duration-300" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+        </div>
+      </div>
+
+      <!-- Links Column 1 -->
+      <div>
+        <h4 class="font-bold text-xs uppercase tracking-widest text-gold-accent mb-6">Navegação</h4>
+        <ul class="space-y-3.5 text-xs text-white/60 font-light">
+          <li><a class="hover:text-white transition-colors" href="index.html">início</a></li>
+          <li><a class="hover:text-white transition-colors" href="quem-somos.html">quem somos</a></li>
+          <li><a class="hover:text-white transition-colors" href="index.html#setores">setores de loja</a></li>
+          <li><a class="hover:text-white transition-colors" href="index.html#bazar">ofertas semanais</a></li>
+          <li><a class="hover:text-white transition-colors" href="index.html#bazar">bazar & utilidades</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Column 2 -->
+      <div>
+        <h4 class="font-bold text-xs uppercase tracking-widest text-gold-accent mb-6">Institucional</h4>
+        <ul class="space-y-3.5 text-xs text-white/60 font-light">
+          <li><a class="hover:text-white transition-colors" href="#">trabalhe conosco</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">política de privacidade</a></li>
+          <li><a class="hover:text-white transition-colors" href="index.html#compromisso">nossos compromissos</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Column -->
+      <div class="space-y-6">
+        <h4 class="font-bold text-xs uppercase tracking-widest text-gold-accent">Contato Rápido</h4>
+        <ul class="space-y-4 text-xs font-light text-white/70">
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-location-dot text-gold-accent mt-0.5"></i>
+            <span>Rua das Flores, 123<br/>Viamão - RS</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-phone text-gold-accent"></i>
+            <span>(51) 3485-0000</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-envelope text-gold-accent"></i>
+            <span>contato@pedralli.com.br</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom strip -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-12 sm:mt-16 pt-8 border-t border-white/5 text-[10px] text-white/40 tracking-wider flex flex-col sm:flex-row justify-between gap-4">
+      <span>&copy; 2026 Supermercado Pedralli. Todos os direitos reservados.</span>
+      <span>100% Viamonense</span>
+    </div>
+  </footer>
+  <!-- END: Footer -->
+
+  <!-- GSAP Animation Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      // 1. Initial page preloader animation
+      const tl = gsap.timeline({
+        onComplete: () => {
+          document.getElementById('preloader').style.pointerEvents = 'none';
+          document.body.style.overflow = 'auto'; // allow scrolling after load
+        }
+      });
+
+      // Prevent scrolling while loading
+      document.body.style.overflow = 'hidden';
+
+      // Animate logo sliding up
+      tl.to("#preloader-logo", {
+        y: "0%",
+        duration: 0.6,
+        ease: "power3.out"
+      });
+
+      // Animate loading bar expansion
+      tl.to("#preloader-bar", {
+        width: "100%",
+        duration: 1.0,
+        ease: "power2.inOut"
+      }, "-=0.2");
+
+      // Slide logo back down out of view
+      tl.to("#preloader-logo", {
+        y: "-110%",
+        duration: 0.4,
+        ease: "power3.in"
+      }, "+=0.1");
+
+      // Sweep the entire preloader screen up out of screen
+      tl.to("#preloader", {
+        yPercent: -100,
+        duration: 0.8,
+        ease: "power4.inOut"
+      }, "-=0.1");
+
+      // 2. Split words for Text Reveal Elements
+      document.querySelectorAll('.text-reveal').forEach(el => {
+        const textContent = el.innerText.trim();
+        const words = textContent.split(' ');
+        el.innerHTML = words.map(word => 
+          `<span class="reveal-word-container"><span class="reveal-word-inner">${word}&nbsp;</span></span>`
+        ).join(' ');
+      });
+
+      // Animate Sub-Hero text reveal on load in sync with preloader exit
+      tl.fromTo(".text-reveal .reveal-word-inner", 
+        { translateY: "115%" },
+        {
+          translateY: "0%",
+          duration: 1.0,
+          ease: "power4.out",
+          stagger: 0.03,
+        },
+        "-=0.4"
+      );
+
+      // 3. ScrollTriggered Text Reveals for remaining sections
+      document.querySelectorAll('.text-reveal').forEach(el => {
+        // Skip sub-hero since it's already animated on load
+        if (el.closest('section.hero-custom-bg')) return;
+
+        gsap.fromTo(el.querySelectorAll('.reveal-word-inner'), 
+          { translateY: "115%" },
+          {
+            translateY: "0%",
+            duration: 1.2,
+            ease: "power4.out",
+            stagger: 0.04,
+            scrollTrigger: {
+              trigger: el,
+              start: "top 88%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      });
+
+      // 4. Staggered fade in for timeline items
+      gsap.utils.toArray('.timeline-item').forEach(item => {
+        gsap.fromTo(item, 
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 85%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+      });
+
+      // 5. Toggle Mobile menu (animated drawer)
+      function initMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileLinks = mobileMenu?.querySelectorAll('a');
+
+        menuToggle?.addEventListener('click', () => {
+          if (mobileMenu) {
+            mobileMenu.classList.remove('hidden');
+            // Animate in
+            gsap.fromTo(mobileMenu, 
+              { opacity: 0, y: -20 },
+              { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }
+            );
+            // Animate links stagger
+            if (mobileLinks) {
+              gsap.fromTo(mobileLinks,
+                { opacity: 0, y: 15 },
+                { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: "power3.out", delay: 0.1 }
+              );
+            }
+            document.body.style.overflow = 'hidden'; // lock background scrolling
+          }
+        });
+
+        function closeMobileMenu() {
+          if (mobileMenu) {
+            gsap.to(mobileMenu, {
+              opacity: 0,
+              y: -20,
+              duration: 0.3,
+              ease: "power3.in",
+              onComplete: () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // unlock background scrolling
+              }
+            });
+          }
+        }
+
+        menuClose?.addEventListener('click', closeMobileMenu);
+        mobileLinks?.forEach(link => {
+          link.addEventListener('click', closeMobileMenu);
+        });
+      }
+
+      initMobileMenu();
+
+      // Smart Hiding Navbar Logic on Scroll
+      function initNavbarScroll() {
+        const header = document.querySelector('header');
+        if (!header) return;
+        let lastScroll = window.scrollY || window.pageYOffset;
+
+        const handleScroll = () => {
+          const currentScroll = window.scrollY || window.pageYOffset;
+
+          if (currentScroll <= 0) {
+            header.classList.remove('scroll-down', 'floating-nav');
+            return;
+          }
+
+          // Check if scrolled past top bar height
+          if (currentScroll > 120) {
+            header.classList.add('floating-nav');
+          } else {
+            header.classList.remove('floating-nav');
+          }
+
+          // Hiding/Showing based on direction
+          if (currentScroll > lastScroll && !header.classList.contains('scroll-down') && currentScroll > 200) {
+            // Scroll down - hide header
+            header.classList.add('scroll-down');
+          } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+            // Scroll up - show header
+            header.classList.remove('scroll-down');
+          }
+
+          lastScroll = currentScroll;
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Run once immediately to set initial state
+      }
+
+      initNavbarScroll();
+
+      // 6. Lightbox Modal Logic
+      const lightboxModal = document.getElementById('lightbox-modal');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxYear = document.getElementById('lightbox-year');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxDesc = document.getElementById('lightbox-desc');
+      const closeBtn = document.getElementById('close-lightbox');
+
+      document.querySelectorAll('.timeline-item-img-container').forEach(container => {
+        container.addEventListener('click', () => {
+          const img = container.querySelector('img');
+          const item = container.closest('.timeline-item');
+          const year = item.querySelector('.text-2xl').innerText;
+          const title = item.querySelector('h3').innerText;
+          const desc = item.querySelector('p').innerText;
+
+          lightboxImg.src = img.src;
+          lightboxYear.innerText = year;
+          lightboxTitle.innerText = title;
+          lightboxDesc.innerText = desc;
+
+          lightboxModal.classList.remove('hidden');
+          gsap.to(lightboxModal, { opacity: 1, duration: 0.3 });
+          document.body.style.overflow = 'hidden'; // Lock scrolling
+        });
+      });
+
+      function closeLightbox() {
+        gsap.to(lightboxModal, {
+          opacity: 0,
+          duration: 0.3,
+          onComplete: () => {
+            lightboxModal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Unlock scrolling
+          }
+        });
+      }
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal || e.target.id === 'lightbox-img') {
+          closeLightbox();
+        }
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !lightboxModal.classList.contains('hidden')) {
+          closeLightbox();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

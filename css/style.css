@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap");
+
+/* Base Setup */
+:root {
+  --primary: #001e37;
+  --primary-light: #003455;
+  --accent: #d97706; /* Elegant amber gold */
+  --bg-warm: #faf9f6; /* Alabaster */
+  --bg-sand: #f3f1ea; /* Warm beige */
+  --bg-terracotta: #eedec9; /* Terracotta tint */
+  --text-dark: #111111;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-warm);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+.font-serif-editorial {
+  font-family: "Playfair Display", serif;
+}
+
+/* Preloader setup */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background-color: var(--primary);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sticky Header Setup with custom transitions */
+header {
+  width: 100%;
+  margin: 0 auto;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              margin 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              top 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.6s ease;
+}
+
+header.scroll-down {
+  transform: translateY(-120%);
+}
+
+header.floating-nav {
+  position: sticky;
+  top: 16px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: calc(100% - 32px);
+  max-w: 1200px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 30px 60px -20px rgba(0, 30, 55, 0.12);
+  border: 1px solid rgba(0, 30, 55, 0.08);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-warm);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 30, 55, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Marquee Loop */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  white-space: nowrap;
+}
+.marquee-content {
+  display: inline-flex;
+  animation: marquee 30s linear infinite;
+}
+
+/* Awwwards Hover States & Card Transitions */
+.awwwards-card {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.awwwards-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 40px 60px -15px rgba(0, 30, 55, 0.07);
+  border-color: rgba(0, 30, 55, 0.18);
+}
+
+/* Clip Path Reveal Wrappers */
+.clip-reveal-wrap {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  overflow: hidden;
+}
+
+/* Parallax Inner Image Setup */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+.parallax-img {
+  height: 120%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: -10%;
+  left: 0;
+  will-change: transform;
+}
+
+/* Elegant Underline Link */
+.awwwards-link {
+  position: relative;
+}
+.awwwards-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.awwwards-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Magnetic circular CTA */
+.magnetic-btn {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.magnetic-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Custom Text Reveal Word Wrapper */
+.reveal-word-container {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.reveal-word-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+/* Floating custom details */
+.pill-tag {
+  border: 1px solid rgba(0, 30, 55, 0.08);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Custom background image for Hero section */
+.hero-custom-bg {
+  background-image: url('../assets/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
