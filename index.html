@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Pedralli | Curadoria, Mercado e Bazar</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <script src="js/tailwind.config.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/style.css"/>
-  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
   <!-- GSAP & ScrollTrigger CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
+
 <body class="bg-surface text-on-surface antialiased overflow-hidden">
 
   <!-- BEGIN: Preloader overlay -->
   <div id="preloader" class="fixed inset-0 bg-primary z-50 flex flex-col items-center justify-center gap-6">
     <div class="overflow-hidden h-14 flex items-center justify-center">
-      <img alt="Pedralli" class="h-10 w-auto brightness-0 invert translate-y-[110%]" id="preloader-logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4"/>
+      <img alt="Pedralli" class="h-10 w-auto brightness-0 invert translate-y-[110%]" id="preloader-logo"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4" />
     </div>
     <!-- Simple horizontal bar loader -->
     <div class="w-40 h-[1.5px] bg-white/10 relative overflow-hidden rounded-full">
@@ -28,10 +31,13 @@
   <!-- END: Preloader overlay -->
 
   <!-- BEGIN: Mobile Menu Drawer -->
-  <div id="mobile-menu" class="fixed inset-0 z-50 bg-[#001e37]/98 backdrop-blur-lg hidden flex flex-col justify-between p-8 text-white">
+  <div id="mobile-menu"
+    class="fixed inset-0 z-50 bg-[#001e37]/98 backdrop-blur-lg hidden flex flex-col justify-between p-8 text-white">
     <div class="flex justify-between items-center pb-6 border-b border-white/10">
-      <img alt="Pedralli" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4"/>
-      <button id="menu-close" class="text-white text-2xl hover:text-gold-accent transition-colors" aria-label="Fechar menu">
+      <img alt="Pedralli" class="h-8 w-auto brightness-0 invert"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4" />
+      <button id="menu-close" class="text-white text-2xl hover:text-gold-accent transition-colors"
+        aria-label="Fechar menu">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
@@ -40,14 +46,16 @@
         <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="#">início</a></li>
         <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="quem-somos.html">quem somos</a></li>
         <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="#setores">setores</a></li>
-        <li><a class="hover:text-gold-accent transition-colors text-gold-accent block py-1.5" href="#destaques">ofertas</a></li>
+        <li><a class="hover:text-gold-accent transition-colors text-gold-accent block py-1.5"
+            href="#destaques">ofertas</a></li>
         <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="#bazar">bazar</a></li>
         <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="#setores">serviços</a></li>
         <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="#contato">contato</a></li>
       </ul>
     </nav>
     <div class="space-y-6 pt-6 border-t border-white/10">
-      <a class="bg-gold-accent text-white py-3.5 px-6 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-amber-600 transition-all duration-300 flex items-center justify-center gap-2" href="#">
+      <a class="bg-gold-accent text-white py-3.5 px-6 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-amber-600 transition-all duration-300 flex items-center justify-center gap-2"
+        href="#">
         WhatsApp <i class="fa-brands fa-whatsapp text-sm"></i>
       </a>
       <div class="text-[9px] tracking-[0.2em] uppercase text-white/40 text-center font-bold">
@@ -58,7 +66,8 @@
   <!-- END: Mobile Menu Drawer -->
 
   <!-- BEGIN: Top Banner Line -->
-  <div class="bg-primary text-white py-3 px-6 border-b border-white/5 text-[10px] tracking-[0.25em] uppercase font-bold text-center">
+  <div
+    class="bg-primary text-white py-3 px-6 border-b border-white/5 text-[10px] tracking-[0.25em] uppercase font-bold text-center">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
       <span>Curadoria selecionada para mercado e bazar na sua mesa</span>
       <span class="hidden md:inline">•</span>
@@ -70,10 +79,11 @@
   <!-- BEGIN: Main Header (Smart hiding / capsule floating navbar) -->
   <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-outline-variant/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
-      
+
       <!-- Brand Logo -->
       <a href="#" class="flex items-center transform hover:opacity-85 transition-opacity">
-        <img alt="Pedralli" class="h-8 sm:h-9 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4"/>
+        <img alt="Pedralli" class="h-8 sm:h-9 w-auto"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4" />
       </a>
 
       <!-- Navigation Menu -->
@@ -82,7 +92,8 @@
           <li><a class="awwwards-link text-primary font-bold" href="#">início</a></li>
           <li><a class="awwwards-link hover:text-primary transition-colors" href="quem-somos.html">quem somos</a></li>
           <li><a class="awwwards-link hover:text-primary transition-colors" href="#setores">setores</a></li>
-          <li><a class="awwwards-link hover:text-primary transition-colors text-gold-accent" href="#destaques">ofertas</a></li>
+          <li><a class="awwwards-link hover:text-primary transition-colors text-gold-accent"
+              href="#destaques">ofertas</a></li>
           <li><a class="awwwards-link hover:text-primary transition-colors" href="#bazar">bazar</a></li>
           <li><a class="awwwards-link hover:text-primary transition-colors" href="#setores">serviços</a></li>
           <li><a class="awwwards-link hover:text-primary transition-colors" href="#contato">contato</a></li>
@@ -91,10 +102,11 @@
 
       <!-- CTA Actions -->
       <div class="flex items-center gap-3 sm:gap-5">
-        <a class="border border-primary text-primary p-2 sm:px-6 sm:py-2.5 rounded-full font-bold text-xs uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 aspect-square sm:aspect-auto w-9 h-9 sm:w-auto sm:h-auto" href="#" title="WhatsApp">
+        <a class="border border-primary text-primary p-2 sm:px-6 sm:py-2.5 rounded-full font-bold text-xs uppercase tracking-wider hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 aspect-square sm:aspect-auto w-9 h-9 sm:w-auto sm:h-auto"
+          href="#" title="WhatsApp">
           <span class="hidden sm:inline">WhatsApp</span> <i class="fa-brands fa-whatsapp text-sm"></i>
         </a>
-        
+
         <!-- Mobile Menu Toggle -->
         <button class="lg:hidden text-primary text-xl p-1" id="menu-toggle" aria-label="Menu">
           <i class="fa-solid fa-bars"></i>
@@ -106,13 +118,20 @@
   <!-- END: Main Header -->
 
   <!-- BEGIN: Hero Section (Full width editorial layout with animated blobs) -->
-  <section class="relative w-full min-h-[calc(100vh-130px)] lg:h-[calc(100vh-130px)] flex items-center py-20 lg:py-0 px-4 sm:px-12 md:px-24 overflow-hidden hero-custom-bg">
-    
+  <section
+    class="relative w-full min-h-[calc(100vh-130px)] lg:h-[calc(100vh-130px)] flex items-center py-20 lg:py-0 px-4 sm:px-12 md:px-24 overflow-hidden hero-custom-bg">
+
     <!-- Dynamic animated gradient backgrounds -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
-      <div class="hero-blob blob-1 absolute rounded-full bg-[#003455]/10 filter blur-[90px] w-[300px] h-[300px] md:w-[500px] md:h-[500px] -top-20 -left-20"></div>
-      <div class="hero-blob blob-2 absolute rounded-full bg-[#d97706]/10 filter blur-[110px] w-[350px] h-[350px] md:w-[600px] md:h-[600px] -bottom-20 -right-20"></div>
-      <div class="hero-blob blob-3 absolute rounded-full bg-[#001e37]/10 filter blur-[70px] w-[250px] h-[250px] md:w-[450px] md:h-[450px] top-1/4 left-1/3"></div>
+      <div
+        class="hero-blob blob-1 absolute rounded-full bg-[#003455]/10 filter blur-[90px] w-[300px] h-[300px] md:w-[500px] md:h-[500px] -top-20 -left-20">
+      </div>
+      <div
+        class="hero-blob blob-2 absolute rounded-full bg-[#d97706]/10 filter blur-[110px] w-[350px] h-[350px] md:w-[600px] md:h-[600px] -bottom-20 -right-20">
+      </div>
+      <div
+        class="hero-blob blob-3 absolute rounded-full bg-[#001e37]/10 filter blur-[70px] w-[250px] h-[250px] md:w-[450px] md:h-[450px] top-1/4 left-1/3">
+      </div>
     </div>
 
     <div class="relative z-10 max-w-2xl lg:max-w-3xl space-y-6 text-left py-4 animate-on-load">
@@ -123,13 +142,16 @@
         O frescor do campo, a curadoria que sua casa merece.
       </h1>
       <p class="text-sm sm:text-base text-white/85 leading-relaxed font-light max-w-xl">
-        Nossa curadoria seleciona os melhores produtos do mercado, ingredientes frescos locais e utensílios importados de bazar para elevar o dia a dia do seu lar.
+        Nossa curadoria seleciona os melhores produtos do mercado, ingredientes frescos locais e utensílios importados
+        de bazar para elevar o dia a dia do seu lar.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 pt-2">
-        <a class="bg-white text-[#001e37] px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-gold-accent hover:text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group magnetic-btn" href="#">
+        <a class="bg-white text-[#001e37] px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-gold-accent hover:text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group magnetic-btn"
+          href="#">
           Explorar Ofertas <i class="fa-solid fa-arrow-right group-hover:translate-x-1.5 transition-transform"></i>
         </a>
-        <a class="bg-gold-accent text-white px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-amber-600 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 magnetic-btn" href="#">
+        <a class="bg-gold-accent text-white px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-amber-600 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 magnetic-btn"
+          href="#">
           Bazar Pedralli <i class="fa-solid fa-kitchen-set"></i>
         </a>
       </div>
@@ -140,7 +162,8 @@
   <!-- BEGIN: Scrolling Marquee -->
   <div class="bg-primary text-white py-6 overflow-hidden select-none border-y border-white/5">
     <div class="marquee-container">
-      <div class="marquee-content text-lg sm:text-2xl font-serif-editorial italic tracking-widest uppercase flex gap-16 whitespace-nowrap">
+      <div
+        class="marquee-content text-lg sm:text-2xl font-serif-editorial italic tracking-widest uppercase flex gap-16 whitespace-nowrap">
         <span>frescor direto da colheita</span>
         <span>•</span>
         <span>padaria artesanal diária</span>
@@ -153,7 +176,7 @@
         <span>•</span>
         <span>qualidade sem concessões</span>
         <span>•</span>
-        
+
         <!-- Repeat content for smooth loop -->
         <span>frescor direto da colheita</span>
         <span>•</span>
@@ -173,15 +196,17 @@
   <!-- END: Scrolling Marquee -->
 
   <!-- BEGIN: Store Info Strip -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 border-b border-outline-variant/40">
-    
+  <section
+    class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 border-b border-outline-variant/40">
+
     <div class="space-y-3 pl-6 border-l border-primary/10">
       <div class="text-xs font-bold tracking-widest uppercase text-gold-accent">01 / Localização</div>
-      <h3 class="text-xl font-bold text-primary text-reveal">Rua das Flores, 123</h3>
+      <h3 class="text-xl font-bold text-primary text-reveal">Av. Sen. Salgado Filho, 5879</h3>
       <p class="text-xs sm:text-sm text-primary/65 leading-relaxed font-light">
-        Bairro Centro, Cidade/UF. Estacionamento gratuito e coberto para sua total conveniência.
+        São Lucas, Viamão/RS. Estacionamento gratuito e coberto para sua total conveniência.
       </p>
-      <a class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:text-gold-accent transition-colors" href="#">
+      <a class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary hover:text-gold-accent transition-colors"
+        href="https://maps.app.goo.gl/erP3fmXyYJBr6m8d9">
         Ver no mapa <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
       </a>
     </div>
@@ -206,9 +231,10 @@
   <!-- END: Store Info Strip -->
 
   <!-- BEGIN: Setores Section -->
-  <section id="setores" class="bg-[#00223f] py-16 sm:py-24 lg:py-32 w-full text-white border-y border-white/5 relative overflow-hidden">
+  <section id="setores"
+    class="bg-[#00223f] py-16 sm:py-24 lg:py-32 w-full text-white border-y border-white/5 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      
+
       <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-20 gap-6">
         <div class="space-y-3">
           <div class="text-xs font-bold tracking-widest text-white/50 uppercase">Catálogo de Setores</div>
@@ -222,52 +248,72 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-        
+
         <!-- Category 1 -->
-        <a href="#" class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between aspect-auto min-h-[220px] sm:aspect-square awwwards-card group text-white">
-          <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-primary transition-colors duration-500 text-lg">
+        <a href="#"
+          class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between aspect-auto min-h-[220px] sm:aspect-square awwwards-card group text-white">
+          <div
+            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-primary transition-colors duration-500 text-lg">
             <i class="fa-solid fa-lemon"></i>
           </div>
           <div class="space-y-2 mt-8">
             <span class="text-[10px] font-bold tracking-wider text-white/40 uppercase">01 / frescas e orgânicas</span>
-            <h3 class="text-2xl font-bold text-white group-hover:text-gold-accent transition-colors font-serif-editorial">Hortifruti</h3>
-            <p class="text-xs text-white/70 leading-relaxed font-light">Frutas e verduras rigorosamente selecionadas e repostas diariamente.</p>
+            <h3
+              class="text-2xl font-bold text-white group-hover:text-gold-accent transition-colors font-serif-editorial">
+              Hortifruti</h3>
+            <p class="text-xs text-white/70 leading-relaxed font-light">Frutas e verduras rigorosamente selecionadas e
+              repostas diariamente.</p>
           </div>
         </a>
 
         <!-- Category 2 -->
-        <a href="#" class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between aspect-auto min-h-[220px] sm:aspect-square awwwards-card group text-white">
-          <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-primary transition-colors duration-500 text-lg">
+        <a href="#"
+          class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between aspect-auto min-h-[220px] sm:aspect-square awwwards-card group text-white">
+          <div
+            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-primary transition-colors duration-500 text-lg">
             <i class="fa-solid fa-drumstick-bite"></i>
           </div>
           <div class="space-y-2 mt-8">
             <span class="text-[10px] font-bold tracking-wider text-white/40 uppercase">02 / nobres & selecionados</span>
-            <h3 class="text-2xl font-bold text-white group-hover:text-gold-accent transition-colors font-serif-editorial">Açougue</h3>
-            <p class="text-xs text-white/70 leading-relaxed font-light">Cortes premium nacionais e importados com consultoria do nosso açougueiro.</p>
+            <h3
+              class="text-2xl font-bold text-white group-hover:text-gold-accent transition-colors font-serif-editorial">
+              Açougue</h3>
+            <p class="text-xs text-white/70 leading-relaxed font-light">Cortes premium nacionais e importados com
+              consultoria do nosso açougueiro.</p>
           </div>
         </a>
 
         <!-- Category 3 -->
-        <a href="#" class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between aspect-auto min-h-[220px] sm:aspect-square awwwards-card group text-white">
-          <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-primary transition-colors duration-500 text-lg">
+        <a href="#"
+          class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between aspect-auto min-h-[220px] sm:aspect-square awwwards-card group text-white">
+          <div
+            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-primary transition-colors duration-500 text-lg">
             <i class="fa-solid fa-bread-slice"></i>
           </div>
           <div class="space-y-2 mt-8">
             <span class="text-[10px] font-bold tracking-wider text-white/40 uppercase">03 / receitas exclusivas</span>
-            <h3 class="text-2xl font-bold text-white group-hover:text-gold-accent transition-colors font-serif-editorial">Padaria</h3>
-            <p class="text-xs text-white/70 leading-relaxed font-light">Pães de fermentação natural, bolos e doces feitos diariamente na nossa cozinha.</p>
+            <h3
+              class="text-2xl font-bold text-white group-hover:text-gold-accent transition-colors font-serif-editorial">
+              Padaria</h3>
+            <p class="text-xs text-white/70 leading-relaxed font-light">Pães de fermentação natural, bolos e doces
+              feitos diariamente na nossa cozinha.</p>
           </div>
         </a>
 
         <!-- Category 4 -->
-        <a href="#" class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between aspect-auto min-h-[220px] sm:aspect-square awwwards-card group text-white">
-          <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-primary transition-colors duration-500 text-lg">
+        <a href="#"
+          class="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between aspect-auto min-h-[220px] sm:aspect-square awwwards-card group text-white">
+          <div
+            class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white/90 group-hover:bg-white group-hover:text-primary transition-colors duration-500 text-lg">
             <i class="fa-solid fa-wine-glass"></i>
           </div>
-      <div class="space-y-2 mt-8">
+          <div class="space-y-2 mt-8">
             <span class="text-[10px] font-bold tracking-wider text-white/40 uppercase">04 / bebidas finas</span>
-            <h3 class="text-2xl font-bold text-white group-hover:text-gold-accent transition-colors font-serif-editorial">Bebidas</h3>
-            <p class="text-xs text-white/70 leading-relaxed font-light">Uma adega completa com rótulos do mundo todo e cervejas artesanais exclusivas.</p>
+            <h3
+              class="text-2xl font-bold text-white group-hover:text-gold-accent transition-colors font-serif-editorial">
+              Bebidas</h3>
+            <p class="text-xs text-white/70 leading-relaxed font-light">Uma adega completa com rótulos do mundo todo e
+              cervejas artesanais exclusivas.</p>
           </div>
         </a>
 
@@ -278,53 +324,74 @@
 
   <!-- BEGIN: Highlight Grid -->
   <section id="bazar" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 grid grid-cols-1 lg:grid-cols-3 gap-8">
-    
+
     <!-- Highlight 1: Ofertas -->
-    <div class="bg-primary text-white rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col justify-between min-h-[300px] relative overflow-hidden group">
-      <div class="absolute -right-6 -bottom-6 opacity-15 transform group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700">
-        <img alt="Cesta" class="w-48 h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATFky26GBqqR047ne9OohTTVihirIJUd-DgTiBykZfFGrFmfWqBFrBegaJ9cQQE9fAodnVbA13cZnu_ySgeGZmUqJGzqvvBvry1vRIE_6aGa79YGWTA06JcIGNzEV6jcO9tlGAjp6z6KSTx-1ATZysZyRMWsMzkOxS-PX1DQyKwtSF6Em_aNOeE576-O8dRLxJ83fTWBsMMi8X3KAIQsa4ytuRCtpgZxpo12E0TwAm6C6WlWp6i4uFxBrtLotGBcN6QDF97XDT5xD_"/>
+    <div
+      class="bg-primary text-white rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col justify-between min-h-[300px] relative overflow-hidden group">
+      <div
+        class="absolute -right-6 -bottom-6 opacity-15 transform group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700">
+        <img alt="Cesta" class="w-48 h-auto"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuATFky26GBqqR047ne9OohTTVihirIJUd-DgTiBykZfFGrFmfWqBFrBegaJ9cQQE9fAodnVbA13cZnu_ySgeGZmUqJGzqvvBvry1vRIE_6aGa79YGWTA06JcIGNzEV6jcO9tlGAjp6z6KSTx-1ATZysZyRMWsMzkOxS-PX1DQyKwtSF6Em_aNOeE576-O8dRLxJ83fTWBsMMi8X3KAIQsa4ytuRCtpgZxpo12E0TwAm6C6WlWp6i4uFxBrtLotGBcN6QDF97XDT5xD_" />
       </div>
       <div class="space-y-3 relative z-10">
-        <span class="text-[9px] font-bold tracking-widest uppercase border border-white/20 px-3 py-1 rounded-full bg-white/5">01 / Curadoria</span>
-        <h2 class="text-3xl font-extrabold tracking-tight leading-tight">Ofertas da<br/>Semana</h2>
-        <p class="text-white/70 text-xs sm:text-sm font-light">Valores diferenciados nos melhores insumos selecionados.</p>
+        <span
+          class="text-[9px] font-bold tracking-widest uppercase border border-white/20 px-3 py-1 rounded-full bg-white/5">01
+          / Curadoria</span>
+        <h2 class="text-3xl font-extrabold tracking-tight leading-tight">Ofertas da<br />Semana</h2>
+        <p class="text-white/70 text-xs sm:text-sm font-light">Valores diferenciados nos melhores insumos selecionados.
+        </p>
       </div>
       <div class="relative z-10 pt-8">
-        <a class="bg-white text-primary hover:bg-gold-accent hover:text-white px-7 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-2" href="#">
+        <a class="bg-white text-primary hover:bg-gold-accent hover:text-white px-7 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-2"
+          href="#">
           Visualizar Ofertas <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
     </div>
 
     <!-- Highlight 2: Encarte -->
-    <div class="bg-white text-primary rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col justify-between min-h-[300px] relative overflow-hidden group border border-outline-variant/60">
-      <div class="absolute -right-6 -bottom-6 opacity-20 transform group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700">
-        <img alt="Encarte" class="w-44 h-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdPeT_-i0v3MwixDlYvhVsEYlXsbSq5H295e9Gw9c2VKTl2c3mPVdWuCOXyZ0BxgG-XeOg7T1Gj2tfWTk63f2CmIi9OYJJlKOpvUSRFVxuJMJsrPN6xVDASDDcIQml5KLdC8Fc8o1g3dkt47xrZwAb50ZUvschU4TZqJqvN4h5N0r1fY8Vwpf7ozBaB8kz4nxjqEi14PyXes5rh4zO7dagQLcsIupaW0PcGD4xVTxzCfWdjlc9CpgknwjPNp7iyRh4tNMfghWxC6sz"/>
+    <div
+      class="bg-white text-primary rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col justify-between min-h-[300px] relative overflow-hidden group border border-outline-variant/60">
+      <div
+        class="absolute -right-6 -bottom-6 opacity-20 transform group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-700">
+        <img alt="Encarte" class="w-44 h-auto"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdPeT_-i0v3MwixDlYvhVsEYlXsbSq5H295e9Gw9c2VKTl2c3mPVdWuCOXyZ0BxgG-XeOg7T1Gj2tfWTk63f2CmIi9OYJJlKOpvUSRFVxuJMJsrPN6xVDASDDcIQml5KLdC8Fc8o1g3dkt47xrZwAb50ZUvschU4TZqJqvN4h5N0r1fY8Vwpf7ozBaB8kz4nxjqEi14PyXes5rh4zO7dagQLcsIupaW0PcGD4xVTxzCfWdjlc9CpgknwjPNp7iyRh4tNMfghWxC6sz" />
       </div>
       <div class="space-y-3 relative z-10">
-        <span class="text-[9px] font-bold tracking-widest uppercase border border-primary/10 px-3 py-1 rounded-full bg-primary/5">02 / Digital</span>
-        <h2 class="text-3xl font-extrabold tracking-tight leading-tight">Catálogo<br/>Interativo</h2>
-        <p class="text-primary/75 text-xs sm:text-sm font-light">Folheie todas as novidades digitalmente na tela do seu celular.</p>
+        <span
+          class="text-[9px] font-bold tracking-widest uppercase border border-primary/10 px-3 py-1 rounded-full bg-primary/5">02
+          / Digital</span>
+        <h2 class="text-3xl font-extrabold tracking-tight leading-tight">Catálogo<br />Interativo</h2>
+        <p class="text-primary/75 text-xs sm:text-sm font-light">Folheie todas as novidades digitalmente na tela do seu
+          celular.</p>
       </div>
       <div class="relative z-10 pt-8">
-        <a class="bg-primary text-white hover:bg-gold-accent hover:text-white px-7 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-2" href="#">
+        <a class="bg-primary text-white hover:bg-gold-accent hover:text-white px-7 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-2"
+          href="#">
           Abrir Catálogo <i class="fa-solid fa-book-open"></i>
         </a>
       </div>
     </div>
 
     <!-- Highlight 3: Bazar -->
-    <div class="bg-white border border-outline-variant/60 rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col justify-between min-h-[300px] relative overflow-hidden group">
-      <div class="absolute -right-8 -bottom-8 opacity-25 transform group-hover:scale-105 transition-transform duration-700">
-        <img alt="Bazar Pedralli" class="w-48 h-48 rounded-full object-cover shadow-inner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxDosGHu-gt6K6wGS0Pl0WI8jqCGNy2VrqiBLZbUb_495MKw5Qd3ykMzld9evMUFIKdIcMjjj3C5YD_lMOTsK84GE5ukJwcYFyR3U8H3KxqHSIG9GfT0QRr-otwmMm2YvTEz8vsNmpMXrZnX_yTjoxO8dgyX8475QLJJ9T2wAB-AGwmZxexPY4uMRctI4UrrnR5wDMa8eAWmHhJkcELnFIJv49KFsrgvradklhXBXEt_ESwSNcBYYpcnEIJZYoTrSPbU3Su-R16l4I"/>
+    <div
+      class="bg-white border border-outline-variant/60 rounded-3xl p-6 sm:p-8 md:p-10 flex flex-col justify-between min-h-[300px] relative overflow-hidden group">
+      <div
+        class="absolute -right-8 -bottom-8 opacity-25 transform group-hover:scale-105 transition-transform duration-700">
+        <img alt="Bazar Pedralli" class="w-48 h-48 rounded-full object-cover shadow-inner"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxDosGHu-gt6K6wGS0Pl0WI8jqCGNy2VrqiBLZbUb_495MKw5Qd3ykMzld9evMUFIKdIcMjjj3C5YD_lMOTsK84GE5ukJwcYFyR3U8H3KxqHSIG9GfT0QRr-otwmMm2YvTEz8vsNmpMXrZnX_yTjoxO8dgyX8475QLJJ9T2wAB-AGwmZxexPY4uMRctI4UrrnR5wDMa8eAWmHhJkcELnFIJv49KFsrgvradklhXBXEt_ESwSNcBYYpcnEIJZYoTrSPbU3Su-R16l4I" />
       </div>
       <div class="space-y-3 relative z-10">
-        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase border border-amber-200">Utilidades & Lar</span>
-        <h2 class="text-3xl font-extrabold text-primary leading-tight">Bazar &<br/>Decoração</h2>
-        <p class="text-primary/75 text-xs sm:text-sm font-light">Utensílios sofisticados e itens decorativos especiais para sua cozinha e casa.</p>
+        <span
+          class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-[9px] font-bold tracking-widest uppercase border border-amber-200">Utilidades
+          & Lar</span>
+        <h2 class="text-3xl font-extrabold text-primary leading-tight">Bazar &<br />Decoração</h2>
+        <p class="text-primary/75 text-xs sm:text-sm font-light">Utensílios sofisticados e itens decorativos especiais
+          para sua cozinha e casa.</p>
       </div>
       <div class="relative z-10 pt-8">
-        <a class="border border-primary text-primary hover:bg-primary hover:text-white px-7 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-2" href="#">
+        <a class="border border-primary text-primary hover:bg-primary hover:text-white px-7 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-all duration-300 inline-flex items-center gap-2"
+          href="#">
           Explorar Bazar <i class="fa-solid fa-kitchen-set"></i>
         </a>
       </div>
@@ -334,8 +401,9 @@
   <!-- END: Highlight Grid -->
 
   <!-- BEGIN: Ofertas do Dia -->
-  <section id="destaques" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 lg:py-32 border-t border-outline-variant/40">
-    
+  <section id="destaques"
+    class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 lg:py-32 border-t border-outline-variant/40">
+
     <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 gap-8">
       <div class="space-y-3">
         <div class="text-xs font-bold tracking-widest text-primary/60 uppercase">Seleção do Dia</div>
@@ -343,17 +411,20 @@
           Oportunidades de hoje
         </h2>
       </div>
-      
+
       <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full lg:w-auto">
         <!-- WhatsApp Group Shortcut Badge -->
-        <a href="https://chat.whatsapp.com/seu-grupo-aqui" target="_blank" class="flex items-center justify-center gap-2 bg-[#25D366]/10 border border-[#25D366]/20 hover:bg-[#25D366]/20 px-5 py-3 rounded-2xl text-xs font-bold text-[#1f8b47] transition-all duration-300 group/wa">
+        <a href="https://chat.whatsapp.com/seu-grupo-aqui" target="_blank"
+          class="flex items-center justify-center gap-2 bg-[#25D366]/10 border border-[#25D366]/20 hover:bg-[#25D366]/20 px-5 py-3 rounded-2xl text-xs font-bold text-[#1f8b47] transition-all duration-300 group/wa">
           <i class="fa-brands fa-whatsapp text-base text-[#25D366]"></i>
           <span>Grupo de Ofertas</span>
-          <i class="fa-solid fa-arrow-right text-[10px] opacity-70 group-hover/wa:translate-x-1 transition-transform"></i>
+          <i
+            class="fa-solid fa-arrow-right text-[10px] opacity-70 group-hover/wa:translate-x-1 transition-transform"></i>
         </a>
 
         <!-- Countdown layout -->
-        <div class="flex items-center justify-center gap-4 bg-surface-container border border-outline-variant/50 p-4 sm:p-5 rounded-2xl">
+        <div
+          class="flex items-center justify-center gap-4 bg-surface-container border border-outline-variant/50 p-4 sm:p-5 rounded-2xl">
           <div class="w-2.5 h-2.5 rounded-full bg-gold-accent badge-pulse"></div>
           <div class="text-xs tracking-wider uppercase font-bold text-primary/80">
             Ofertas expiram em: <span class="font-mono text-sm ml-2 tabular-nums" id="countdown-timer">14:25:30</span>
@@ -363,20 +434,27 @@
     </div>
 
     <!-- BEGIN: WhatsApp VIP Group Banner -->
-    <div class="mb-0 bg-gradient-to-r from-primary to-secondary text-white rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row justify-between items-center gap-6 border border-white/5 relative overflow-hidden group shadow-md hover:shadow-lg transition-all duration-300">
+    <div
+      class="mb-0 bg-gradient-to-r from-primary to-secondary text-white rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row justify-between items-center gap-6 border border-white/5 relative overflow-hidden group shadow-md hover:shadow-lg transition-all duration-300">
       <!-- WhatsApp logo watermark background -->
-      <div class="absolute -right-6 -bottom-10 opacity-[0.07] text-[180px] pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700">
+      <div
+        class="absolute -right-6 -bottom-10 opacity-[0.07] text-[180px] pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700">
         <i class="fa-brands fa-whatsapp"></i>
       </div>
       <div class="space-y-3 relative z-10 text-center md:text-left">
-        <span class="bg-[#25D366]/20 text-[#25D366] text-[10px] font-extrabold uppercase tracking-widest px-3.5 py-1.5 rounded-full border border-[#25D366]/35 inline-block">Grupo de Ofertas</span>
-        <h3 class="text-2xl sm:text-3xl font-light font-serif-editorial italic text-white pt-1">Promoções diárias direto no seu WhatsApp</h3>
+        <span
+          class="bg-[#25D366]/20 text-[#25D366] text-[10px] font-extrabold uppercase tracking-widest px-3.5 py-1.5 rounded-full border border-[#25D366]/35 inline-block">Grupo
+          de Ofertas</span>
+        <h3 class="text-2xl sm:text-3xl font-light font-serif-editorial italic text-white pt-1">Promoções diárias direto
+          no seu WhatsApp</h3>
         <p class="text-white/70 text-xs sm:text-sm font-light max-w-xl">
-          Participe do nosso grupo de promoções para acompanhar todas as ofertas em tempo real, receber o encarte de bazar e hortifruti e economizar nas suas compras.
+          Participe do nosso grupo de promoções para acompanhar todas as ofertas em tempo real, receber o encarte de
+          bazar e hortifruti e economizar nas suas compras.
         </p>
       </div>
       <div class="relative z-10 shrink-0">
-        <a class="bg-[#25D366] hover:bg-[#20ba5a] text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 inline-flex items-center gap-2.5 shadow-lg hover:shadow-[#25D366]/20 hover:scale-[1.03] active:scale-95" href="https://chat.whatsapp.com/seu-grupo-aqui" target="_blank">
+        <a class="bg-[#25D366] hover:bg-[#20ba5a] text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 inline-flex items-center gap-2.5 shadow-lg hover:shadow-[#25D366]/20 hover:scale-[1.03] active:scale-95"
+          href="https://chat.whatsapp.com/seu-grupo-aqui" target="_blank">
           Entrar no Grupo <i class="fa-brands fa-whatsapp text-sm"></i>
         </a>
       </div>
@@ -388,7 +466,7 @@
   <!-- BEGIN: Awwwards Pinned Showcase Section -->
   <section class="bg-primary text-white py-16 sm:py-24 lg:py-36 pin-container relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-      
+
       <!-- Pinned Left Column (GSAP Pin element) -->
       <div class="lg:col-span-5 space-y-6 pin-left lg:sticky lg:top-32 lg:pb-12">
         <span class="text-gold-accent text-xs font-bold tracking-[0.25em] uppercase">02 / Nosso Compromisso</span>
@@ -396,7 +474,8 @@
           Escolhas que contam histórias.
         </h2>
         <p class="text-white/60 text-sm sm:text-base leading-relaxed font-light">
-          No Supermercado Pedralli, Acreditamos que comer bem é um ato de amor próprio. Por isso, organizamos nossos diferencias em pilares que agregam valor e sabor ao seu cotidiano. Role para o lado e conheça cada um deles.
+          No Supermercado Pedralli, Acreditamos que comer bem é um ato de amor próprio. Por isso, organizamos nossos
+          diferencias em pilares que agregam valor e sabor ao seu cotidiano. Role para o lado e conheça cada um deles.
         </p>
         <div class="pt-6 hidden lg:block">
           <span class="text-xs text-white/40 uppercase tracking-widest flex items-center gap-2">
@@ -407,16 +486,18 @@
 
       <!-- Scrolling Right Column -->
       <div class="lg:col-span-7 space-y-16">
-        
+
         <!-- Card 1: Seleção Gourmet -->
         <div class="bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-8 md:p-12 space-y-6">
           <div class="text-gold-accent font-bold text-xs tracking-wider uppercase">Pilar 01 / Linha Gourmet</div>
           <h3 class="text-3xl font-light font-serif-editorial italic text-white">Seleção Exclusiva</h3>
           <p class="text-white/70 text-sm sm:text-base leading-relaxed font-light">
-            Vinhos de terroirs prestigiados, queijos curados artesanalmente e embutidos finos que trazem o melhor da gastronomia mundial para o seu lar.
+            Vinhos de terroirs prestigiados, queijos curados artesanalmente e embutidos finos que trazem o melhor da
+            gastronomia mundial para o seu lar.
           </p>
           <div class="rounded-2xl overflow-hidden aspect-[16/9] clip-reveal-wrap">
-            <img alt="Queijos" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdl_-H3cpPIRyYC6JlrX-Ecl4qtK5XTYVUVpp8yr8blwRl7TyNLXuWL_ngUm_y8U-VOYTrJepo-j5t19vTDGPgKfw8GbaBWH_u--v7Uhr5E_ny6pbp-Si2R4PuJ9y_l0ZScRnaqu9WgfYE4dGqJee060r9LYVWIWVDxAf3l4_8CvDIn8MNZe6Ri8cIt61FVibHCb2t40TpXHbkYrSLlymkrfSwvoCYVGK_ZfxyqpzFSZa6cApe4HoTj1Q7D2jl1BjXEyNBeEC4FTcD"/>
+            <img alt="Queijos" class="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdl_-H3cpPIRyYC6JlrX-Ecl4qtK5XTYVUVpp8yr8blwRl7TyNLXuWL_ngUm_y8U-VOYTrJepo-j5t19vTDGPgKfw8GbaBWH_u--v7Uhr5E_ny6pbp-Si2R4PuJ9y_l0ZScRnaqu9WgfYE4dGqJee060r9LYVWIWVDxAf3l4_8CvDIn8MNZe6Ri8cIt61FVibHCb2t40TpXHbkYrSLlymkrfSwvoCYVGK_ZfxyqpzFSZa6cApe4HoTj1Q7D2jl1BjXEyNBeEC4FTcD" />
           </div>
         </div>
 
@@ -425,10 +506,12 @@
           <div class="text-gold-accent font-bold text-xs tracking-wider uppercase">Pilar 02 / Equipando a Casa</div>
           <h3 class="text-3xl font-light font-serif-editorial italic text-white">Bazar Curado</h3>
           <p class="text-white/70 text-sm sm:text-base leading-relaxed font-light">
-            Pratos, taças de cristal, panelas e utensílios importados que transformam o ato de cozinhar em um verdadeiro ritual de prazer.
+            Pratos, taças de cristal, panelas e utensílios importados que transformam o ato de cozinhar em um verdadeiro
+            ritual de prazer.
           </p>
           <div class="rounded-2xl overflow-hidden aspect-[16/9] clip-reveal-wrap">
-            <img alt="Bazar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxDosGHu-gt6K6wGS0Pl0WI8jqCGNy2VrqiBLZbUb_495MKw5Qd3ykMzld9evMUFIKdIcMjjj3C5YD_lMOTsK84GE5ukJwcYFyR3U8H3KxqHSIG9GfT0QRr-otwmMm2YvTEz8vsNmpMXrZnX_yTjoxO8dgyX8475QLJJ9T2wAB-AGwmZxexPY4uMRctI4UrrnR5wDMa8eAWmHhJkcELnFIJv49KFsrgvradklhXBXEt_ESwSNcBYYpcnEIJZYoTrSPbU3Su-R16l4I"/>
+            <img alt="Bazar" class="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxDosGHu-gt6K6wGS0Pl0WI8jqCGNy2VrqiBLZbUb_495MKw5Qd3ykMzld9evMUFIKdIcMjjj3C5YD_lMOTsK84GE5ukJwcYFyR3U8H3KxqHSIG9GfT0QRr-otwmMm2YvTEz8vsNmpMXrZnX_yTjoxO8dgyX8475QLJJ9T2wAB-AGwmZxexPY4uMRctI4UrrnR5wDMa8eAWmHhJkcELnFIJv49KFsrgvradklhXBXEt_ESwSNcBYYpcnEIJZYoTrSPbU3Su-R16l4I" />
           </div>
         </div>
 
@@ -437,10 +520,12 @@
           <div class="text-gold-accent font-bold text-xs tracking-wider uppercase">Pilar 03 / Comunidade</div>
           <h3 class="text-3xl font-light font-serif-editorial italic text-white">Equipe Focada em Você</h3>
           <p class="text-white/70 text-sm sm:text-base leading-relaxed font-light">
-            Treinamos nossa equipe continuamente para que cada contato com o cliente seja feito com sorrisos, presteza e o acolhimento clássico que nos define.
+            Treinamos nossa equipe continuamente para que cada contato com o cliente seja feito com sorrisos, presteza e
+            o acolhimento clássico que nos define.
           </p>
           <div class="rounded-2xl overflow-hidden aspect-[16/9] clip-reveal-wrap">
-            <img alt="Trabalho" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbUz6neAmFz9IQBGahMc-XzPieRUrtflYsmr5Tm5YDZXLdP3CSh0DTcF8B8Aq9KKvOcSxTrjnuxPHZUkqAWELLV_W3x9cQbjIpfvI17TFSQvbRmjX-yyOfxIfUGhMUMm9Gz96Kovwk2oDDX6J6l2wogqGADNp0rWG0IzFPFXuqOPe80wCqtkG03mRhXXkrZ3iYGTCeo4Od6qwNArPXgWqZrUK2hHazCzpo6wqt2FNcQRhNyj5E4P29I_37x4Q87sfcIhZ5bKm2Xb57"/>
+            <img alt="Trabalho" class="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbUz6neAmFz9IQBGahMc-XzPieRUrtflYsmr5Tm5YDZXLdP3CSh0DTcF8B8Aq9KKvOcSxTrjnuxPHZUkqAWELLV_W3x9cQbjIpfvI17TFSQvbRmjX-yyOfxIfUGhMUMm9Gz96Kovwk2oDDX6J6l2wogqGADNp0rWG0IzFPFXuqOPe80wCqtkG03mRhXXkrZ3iYGTCeo4Od6qwNArPXgWqZrUK2hHazCzpo6wqt2FNcQRhNyj5E4P29I_37x4Q87sfcIhZ5bKm2Xb57" />
           </div>
         </div>
 
@@ -453,24 +538,27 @@
   <!-- BEGIN: Terracotta App Banner Segment -->
   <section class="bg-terracotta text-primary py-16 sm:py-24 lg:py-32 w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-center">
-      
+
       <div class="lg:col-span-5 space-y-6 text-left">
         <span class="text-primary/70 text-xs font-bold tracking-[0.25em] uppercase">03 / Praticidade Digital</span>
         <h3 class="text-reveal text-4xl sm:text-5xl font-light leading-tight text-primary">
           Seu mercado no seu ritmo
         </h3>
         <p class="text-primary/80 text-sm sm:text-base leading-relaxed font-light">
-          Baixe nosso aplicativo móvel. Faça compras com facilidade, aproveite cupons de desconto sob medida e gerencie seus pontos no clube de benefícios Pedralli.
+          Baixe nosso aplicativo móvel. Faça compras com facilidade, aproveite cupons de desconto sob medida e gerencie
+          seus pontos no clube de benefícios Pedralli.
         </p>
         <div class="flex flex-wrap gap-3 pt-4">
-          <a class="bg-primary hover:bg-primary-light text-white px-5 py-2.5 rounded-xl flex items-center gap-2.5 transition shadow" href="#">
+          <a class="bg-primary hover:bg-primary-light text-white px-5 py-2.5 rounded-xl flex items-center gap-2.5 transition shadow"
+            href="#">
             <i class="fa-brands fa-apple text-xl"></i>
             <div class="text-left">
               <div class="text-[9px] opacity-60 leading-none">Download na</div>
               <div class="text-xs font-bold leading-none mt-0.5">App Store</div>
             </div>
           </a>
-          <a class="bg-primary hover:bg-primary-light text-white px-5 py-2.5 rounded-xl flex items-center gap-2.5 transition shadow" href="#">
+          <a class="bg-primary hover:bg-primary-light text-white px-5 py-2.5 rounded-xl flex items-center gap-2.5 transition shadow"
+            href="#">
             <i class="fa-brands fa-google-play text-lg"></i>
             <div class="text-left">
               <div class="text-[9px] opacity-60 leading-none">Disponível no</div>
@@ -480,9 +568,13 @@
         </div>
       </div>
 
-      <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl relative group bg-white/30 p-2 border border-white/20">
-        <div class="overflow-hidden rounded-2xl aspect-[4/3] sm:aspect-[16/10] flex justify-center items-end bg-[#002848] clip-reveal-wrap">
-          <img alt="App Pedralli" class="w-full max-w-lg h-auto object-contain transform translate-y-6 sm:translate-y-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEC_lM4G0-C05le7O-yo2qE4JXbfyYPVHXVoH-nrs4nRGRkl3mjZ8t8MdAc-vNvwrIFjBbRX6GQBkCa46P0xrVgk6m0EB3skdggoljYIoqPlLGqXDltmw_CnzQy0aZaFn0FGwwUy3c18KtGWbKE_1YGzEdT9EHRPb6Dp8ouLxc256TsMyCTLd0jkJeSHBF2IwcMqorXpJOrMxwZQc1FqC5TbJBLXy0dYNmb1RI2dUdOZ7mAZSmZpFO2JPVaQDIStGHMoh-AfJ2EOY2"/>
+      <div
+        class="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl relative group bg-white/30 p-2 border border-white/20">
+        <div
+          class="overflow-hidden rounded-2xl aspect-[4/3] sm:aspect-[16/10] flex justify-center items-end bg-[#002848] clip-reveal-wrap">
+          <img alt="App Pedralli"
+            class="w-full max-w-lg h-auto object-contain transform translate-y-6 sm:translate-y-12"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEC_lM4G0-C05le7O-yo2qE4JXbfyYPVHXVoH-nrs4nRGRkl3mjZ8t8MdAc-vNvwrIFjBbRX6GQBkCa46P0xrVgk6m0EB3skdggoljYIoqPlLGqXDltmw_CnzQy0aZaFn0FGwwUy3c18KtGWbKE_1YGzEdT9EHRPb6Dp8ouLxc256TsMyCTLd0jkJeSHBF2IwcMqorXpJOrMxwZQc1FqC5TbJBLXy0dYNmb1RI2dUdOZ7mAZSmZpFO2JPVaQDIStGHMoh-AfJ2EOY2" />
         </div>
       </div>
 
@@ -493,35 +585,42 @@
   <!-- BEGIN: Editorial Newsletter Section (Soft Champagne background) -->
   <section class="bg-[#f5eade] py-16 sm:py-24 lg:py-32 w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      
+
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-6 space-y-4">
-          <span class="text-gold-accent text-xs font-bold tracking-[0.25em] uppercase">Mantenha Conectado</span>
+          <span class="text-gold-accent text-xs font-bold tracking-[0.25em] uppercase">Mantenha-se Conectado</span>
           <h2 class="text-reveal text-4xl sm:text-5xl font-light text-primary leading-tight">
-            Acompanhe nossa colheita diária
+            Acompanhe nossas ofertas diárias
           </h2>
           <p class="text-primary/70 text-sm sm:text-base leading-relaxed font-light max-w-md">
-            Inscreva seu telefone para receber nosso catálogo de ofertas e folhetos digitais diretamente no seu WhatsApp todas as semanas.
+            Inscreva seu telefone para receber nosso catálogo de ofertas e folhetos digitais diretamente no seu WhatsApp
+            todas as semanas.
           </p>
         </div>
 
         <div class="lg:col-span-6 w-full">
           <form class="flex flex-col sm:flex-row items-stretch gap-4 w-full">
             <div class="flex-grow">
-              <input class="w-full bg-transparent border-b-2 border-primary/20 focus:border-primary py-4 px-2 text-base placeholder-primary/45 focus:outline-none transition-colors text-primary" placeholder="WhatsApp: (51) 99999-9999" type="text"/>
+              <input
+                class="w-full bg-transparent border-b-2 border-primary/20 focus:border-primary py-4 px-2 text-base placeholder-primary/45 focus:outline-none transition-colors text-primary"
+                placeholder="WhatsApp: (51) 99999-9999" type="text" />
             </div>
-            <button class="bg-primary text-white hover:bg-gold-accent px-10 py-4 rounded-full font-bold text-xs uppercase tracking-wider transition-colors duration-300 shrink-0 shadow-md hover:shadow-lg" type="submit">
+            <button
+              class="bg-primary text-white hover:bg-gold-accent px-10 py-4 rounded-full font-bold text-xs uppercase tracking-wider transition-colors duration-300 shrink-0 shadow-md hover:shadow-lg"
+              type="submit">
               inscrever-se
             </button>
           </form>
           <p class="text-[10px] text-primary/50 mt-4 leading-relaxed font-light flex items-center gap-2">
-            <i class="fa-solid fa-shield-halved"></i> Garantimos sua privacidade. Sem spams, apenas encartes oficiais semanais.
+            <i class="fa-solid fa-shield-halved"></i> Garantimos sua privacidade. Sem spams, apenas encartes oficiais
+            semanais.
           </p>
         </div>
       </div>
 
       <!-- Minimal Pillars Row -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mt-16 sm:mt-24 pt-16 border-t border-primary/10">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mt-16 sm:mt-24 pt-16 border-t border-primary/10">
         <div class="space-y-2">
           <div class="text-lg font-bold text-primary font-serif-editorial text-reveal">01 / Curadoria</div>
           <p class="text-xs text-primary/60 leading-relaxed font-light">
@@ -555,17 +654,22 @@
   <!-- BEGIN: Footer -->
   <footer id="contato" class="bg-primary text-white pt-16 pb-12 sm:pt-24 w-full border-t border-white/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 sm:gap-16">
-      
+
       <!-- Info Column -->
       <div class="space-y-6 lg:col-span-2">
-        <img alt="Pedralli" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4"/>
+        <img alt="Pedralli" class="h-8 w-auto brightness-0 invert"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAchJlBCVWNcItlL3iREzcF7TdvPws6Bgb_E4ZdKplFb7nhV_YrAWV-gsyDRipvZbEr19gIp3TTbY9lCjvfT2dVylVyoqMxCJSSWnprWR2QZvBmiKNRv1JHC8E2FXuWNIIwQnE_GIkRFd2OaVLW2G9UdR0RlaiWofpM8wf7vVLfc0DqrvtuMRWJzZ7Iuz6Vjxrh9bDddCpUf_ofGGmhowoPJvV1dMH7OZNMcZxItKO6aLEDtdWeE5GUFEW5hQ4FS1d3TD_3X2PMGgs4" />
         <p class="text-xs sm:text-sm text-white/55 leading-relaxed font-light max-w-sm">
-          Comprometidos em selecionar o melhor frescor, oferecer preços equilibrados e entregar a experiência acolhedora que você merece.
+          Comprometidos em selecionar o melhor frescor, oferecer preços equilibrados e entregar a experiência acolhedora
+          que você merece.
         </p>
         <div class="flex gap-4">
-          <a class="w-8 h-8 rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-primary flex items-center justify-center transition-all duration-300" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
-          <a class="w-8 h-8 rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-primary flex items-center justify-center transition-all duration-300" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
-          <a class="w-8 h-8 rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-primary flex items-center justify-center transition-all duration-300" href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+          <a class="w-8 h-8 rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-primary flex items-center justify-center transition-all duration-300"
+            href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+          <a class="w-8 h-8 rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-primary flex items-center justify-center transition-all duration-300"
+            href="#" aria-label="Instagram"><i class="fa-brands fa-instagram text-xs"></i></a>
+          <a class="w-8 h-8 rounded-full border border-white/20 hover:border-white hover:bg-white hover:text-primary flex items-center justify-center transition-all duration-300"
+            href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
         </div>
       </div>
 
@@ -598,10 +702,11 @@
         <ul class="space-y-3 text-xs text-white/60 font-light">
           <li class="flex items-center gap-2"><i class="fa-brands fa-whatsapp text-white/40"></i> (51) 99999-9999</li>
           <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-white/40"></i> (51) 99999-9999</li>
-          <li class="flex items-center gap-2"><i class="fa-regular fa-envelope text-white/40"></i> contato@pedralli.com.br</li>
+          <li class="flex items-center gap-2"><i class="fa-regular fa-envelope text-white/40"></i>
+            contato@pedralli.com.br</li>
           <li class="flex items-start gap-2 leading-relaxed">
             <i class="fa-solid fa-location-dot text-white/40 mt-0.5"></i>
-            <span>Rua das Flores, 123<br/>Centro, Cidade/UF</span>
+            <span>Av. Sen. Salgado Filho, 5879<br />Centro, Cidade/UF</span>
           </li>
         </ul>
       </div>
@@ -612,9 +717,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-16 sm:mt-20 pt-10 border-t border-white/5">
       <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-white/40">
         <p>© 2026 Supermercado Pedralli. Todos os direitos reservados.</p>
-        <p class="flex items-center gap-1.5">Cultivado com <i class="fa-solid fa-heart text-gold-accent animate-pulse"></i> para a nossa comunidade.</p>
+        <p class="flex items-center gap-1.5">Cultivado com <i
+            class="fa-solid fa-heart text-gold-accent animate-pulse"></i> para a nossa comunidade.</p>
       </div>
-      <div class="text-[12vw] font-serif-editorial italic font-bold tracking-tight text-white/5 text-center mt-12 select-none pointer-events-none leading-none">
+      <div
+        class="text-[12vw] font-serif-editorial italic font-bold tracking-tight text-white/5 text-center mt-12 select-none pointer-events-none leading-none">
         Pedralli
       </div>
     </div>
@@ -622,7 +729,8 @@
   <!-- END: Footer -->
 
   <!-- Floating WhatsApp Action -->
-  <a class="fixed bottom-6 right-6 bg-primary text-white border border-white/10 hover:border-white p-4 rounded-full shadow-2xl hover:bg-gold-accent hover:scale-110 active:scale-95 transition-all duration-300 text-xl z-50 flex items-center justify-center w-12 h-12" href="#" aria-label="WhatsApp">
+  <a class="fixed bottom-6 right-6 bg-primary text-white border border-white/10 hover:border-white p-4 rounded-full shadow-2xl hover:bg-gold-accent hover:scale-110 active:scale-95 transition-all duration-300 text-xl z-50 flex items-center justify-center w-12 h-12"
+    href="#" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
@@ -633,10 +741,10 @@
       let seconds = 30;
       let minutes = 25;
       let hours = 14;
-      
+
       const timerDisplay = document.getElementById('countdown-timer');
       if (!timerDisplay) return;
-      
+
       const interval = setInterval(() => {
         seconds--;
         if (seconds < 0) {
@@ -652,12 +760,12 @@
             }
           }
         }
-        
+
         const formatNum = (num) => String(num).padStart(2, '0');
         timerDisplay.textContent = `${formatNum(hours)}:${formatNum(minutes)}:${formatNum(seconds)}`;
       }, 1000);
     }
-    
+
     // Toggle Mobile menu (animated drawer)
     function initMobileMenu() {
       const mobileMenu = document.getElementById('mobile-menu');
@@ -669,7 +777,7 @@
         if (mobileMenu) {
           mobileMenu.classList.remove('hidden');
           // Animate in
-          gsap.fromTo(mobileMenu, 
+          gsap.fromTo(mobileMenu,
             { opacity: 0, y: -20 },
             { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }
           );
@@ -787,13 +895,13 @@
       document.querySelectorAll('.text-reveal').forEach(el => {
         const textContent = el.innerText.trim();
         const words = textContent.split(' ');
-        el.innerHTML = words.map(word => 
+        el.innerHTML = words.map(word =>
           `<span class="reveal-word-container"><span class="reveal-word-inner">${word}&nbsp;</span></span>`
         ).join(' ');
       });
 
       // Animate Hero text reveal in sync with preloader exit
-      tl.fromTo(".text-reveal .reveal-word-inner", 
+      tl.fromTo(".text-reveal .reveal-word-inner",
         { translateY: "115%" },
         {
           translateY: "0%",
@@ -820,7 +928,7 @@
         // Skip hero since it's already animated on load
         if (el.closest('.hero-custom-bg')) return;
 
-        gsap.fromTo(el.querySelectorAll('.reveal-word-inner'), 
+        gsap.fromTo(el.querySelectorAll('.reveal-word-inner'),
           { translateY: "115%" },
           {
             translateY: "0%",
@@ -841,7 +949,7 @@
         // Skip hero
         if (el.closest('.hero-wrapper')) return;
 
-        gsap.fromTo(el, 
+        gsap.fromTo(el,
           { clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" },
           {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
@@ -858,7 +966,7 @@
 
       // 5. Parallax Images Like a Pro
       gsap.utils.toArray('.parallax-img').forEach(img => {
-        gsap.fromTo(img, 
+        gsap.fromTo(img,
           { yPercent: -10 },
           {
             yPercent: 10,
@@ -933,4 +1041,5 @@
   </script>
 
 </body>
+
 </html>
