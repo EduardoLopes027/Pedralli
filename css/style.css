@@ -195,8 +195,23 @@ header.floating-nav {
 
 /* Custom background image for Hero section */
 .hero-custom-bg {
-  background-image: url('../assets/hero-bg.png');
+  background-image: url('../assets/hero-bg.webp');
   background-size: cover;
   background-position: center;
+}
+
+/* Hide horizontal scrollbar for clean carousels */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Slide hover transition fix */
+.flyer-slide {
+  position: relative;
+  will-change: transform;
 }
 

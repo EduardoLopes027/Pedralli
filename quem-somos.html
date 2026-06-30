@@ -46,9 +46,8 @@
         <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="index.html">início</a></li>
         <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="quem-somos.html">quem somos</a></li>
         <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="index.html#setores">setores</a></li>
-        <li><a class="hover:text-gold-accent transition-colors text-gold-accent block py-1.5" href="index.html#destaques">ofertas</a></li>
-        <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="index.html#bazar">bazar</a></li>
-        <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="index.html#setores">serviços</a></li>
+        <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="index.html#destaques">ofertas</a></li>
+        <li><a class="hover:text-gold-accent transition-colors text-gold-accent block py-1.5" href="index.html#bazar">bazar</a></li>
         <li><a class="hover:text-gold-accent transition-colors block py-1.5" href="#contato">contato</a></li>
       </ul>
     </nav>
@@ -57,7 +56,7 @@
         WhatsApp <i class="fa-brands fa-whatsapp text-sm"></i>
       </a>
       <div class="text-[9px] tracking-[0.2em] uppercase text-white/40 text-center font-bold">
-        Segunda a Sábado: 08h às 21h | Domingo: 08h às 20h
+        Segunda a Sábado: 08h às 20h30 | Domingo e Feriados: 08h às 20h
       </div>
     </div>
   </div>
@@ -66,9 +65,9 @@
   <!-- BEGIN: Top Banner Line -->
   <div class="bg-primary text-white py-3 px-6 border-b border-white/5 text-[10px] tracking-[0.25em] uppercase font-bold text-center">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-      <span>Curadoria selecionada para mercado e bazar na sua mesa</span>
+      <span class="hidden md:inline">Curadoria selecionada para mercado e bazar na sua mesa</span>
       <span class="hidden md:inline">•</span>
-      <span>Segunda a Sábado: 08h às 21h | Domingo: 08h às 20h</span>
+      <span>Segunda a Sábado: 08h às 20h30 | Domingo e Feriados: 08h às 20h</span>
     </div>
   </div>
   <!-- END: Top Banner Line -->
@@ -88,9 +87,8 @@
           <li><a class="awwwards-link hover:text-primary transition-colors" href="index.html">início</a></li>
           <li><a class="awwwards-link text-primary font-bold" href="quem-somos.html">quem somos</a></li>
           <li><a class="awwwards-link hover:text-primary transition-colors" href="index.html#setores">setores</a></li>
-          <li><a class="awwwards-link hover:text-primary transition-colors text-gold-accent" href="index.html#destaques">ofertas</a></li>
-          <li><a class="awwwards-link hover:text-primary transition-colors" href="index.html#bazar">bazar</a></li>
-          <li><a class="awwwards-link hover:text-primary transition-colors" href="index.html#setores">serviços</a></li>
+          <li><a class="awwwards-link hover:text-primary transition-colors" href="index.html#destaques">ofertas</a></li>
+          <li><a class="awwwards-link hover:text-primary transition-colors text-gold-accent" href="index.html#bazar">bazar</a></li>
           <li><a class="awwwards-link hover:text-primary transition-colors" href="#contato">contato</a></li>
         </ul>
       </nav>
@@ -505,33 +503,33 @@
       // Prevent scrolling while loading
       document.body.style.overflow = 'hidden';
 
-      // Animate logo sliding up
+      // Animate preloader logo slide up
       tl.to("#preloader-logo", {
         y: "0%",
-        duration: 0.6,
+        duration: 0.4,
         ease: "power3.out"
       });
 
       // Animate loading bar expansion
       tl.to("#preloader-bar", {
         width: "100%",
-        duration: 1.0,
+        duration: 0.6,
         ease: "power2.inOut"
-      }, "-=0.2");
+      }, "-=0.1");
 
       // Slide logo back down out of view
       tl.to("#preloader-logo", {
         y: "-110%",
-        duration: 0.4,
+        duration: 0.25,
         ease: "power3.in"
-      }, "+=0.1");
+      }, "+=0.05");
 
       // Sweep the entire preloader screen up out of screen
       tl.to("#preloader", {
         yPercent: -100,
-        duration: 0.8,
+        duration: 0.45,
         ease: "power4.inOut"
-      }, "-=0.1");
+      }, "-=0.05");
 
       // 2. Split words for Text Reveal Elements
       document.querySelectorAll('.text-reveal').forEach(el => {
@@ -547,11 +545,11 @@
         { translateY: "115%" },
         {
           translateY: "0%",
-          duration: 1.0,
+          duration: 0.6,
           ease: "power4.out",
-          stagger: 0.03,
+          stagger: 0.02,
         },
-        "-=0.4"
+        "-=0.25"
       );
 
       // 3. ScrollTriggered Text Reveals for remaining sections
