@@ -28,7 +28,7 @@ O Google Apps Script agirá como uma ponte segura e gratuita entre o seu Drive e
 ```javascript
 function doGet(e) {
   // ⚠️ SUBSTITUA COM O ID DA SUA PASTA COPIADO NO PASSO 1
-  var folderId = "COLE_O_ID_DA_SUA_PASTA_AQUI"; 
+  var folderId = "COLE_O_ID_DA_SUA_PASTA_AQUI";   
   
   var folder = DriveApp.getFolderById(folderId);
   var files = folder.getFiles();
@@ -56,8 +56,7 @@ function doGet(e) {
   });
   
   return ContentService.createTextOutput(JSON.stringify(result))
-    .setMimeType(ContentService.MimeType.JSON)
-    .setHeader("Access-Control-Allow-Origin", "*"); // Libera o acesso para o site (CORS)
+    .setMimeType(ContentService.MimeType.JSON);
 }
 ```
 
