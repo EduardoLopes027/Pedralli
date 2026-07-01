@@ -217,34 +217,31 @@
       <!-- Slider Track -->
       <div class="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth touch-pan-x" id="flyer-carousel-track">
         
-        <!-- Slide 1 (Hortifruti) -->
-        <div class="snap-start shrink-0 w-[280px] sm:w-[320px] aspect-[3/4] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-500 cursor-pointer flyer-slide relative" data-title="Ofertas de Hortifruti" data-desc="Verduras e frutas frescas direto do produtor.">
-          <img alt="Hortifruti Pedralli" class="w-full h-full object-cover" src="assets/ofertas/flyer_hortifruti.jpg" loading="lazy" />
-          <div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-            <span class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 hover:scale-100 transition-all duration-300">
-              <i class="fa-solid fa-magnifying-glass-plus text-sm"></i>
-            </span>
+        <!-- Skeleton Slide 1 -->
+        <div class="snap-start shrink-0 w-[280px] sm:w-[320px] aspect-[3/4] rounded-3xl overflow-hidden border border-outline-variant/30 bg-surface shadow-sm animate-pulse flex flex-col items-center justify-center p-6 gap-4">
+          <div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary/20">
+            <i class="fa-solid fa-spinner animate-spin text-xl text-gold-accent"></i>
           </div>
+          <div class="w-3/4 h-3 bg-primary/10 rounded-full"></div>
+          <div class="w-1/2 h-2 bg-primary/5 rounded-full"></div>
         </div>
 
-        <!-- Slide 2 (Padaria) -->
-        <div class="snap-start shrink-0 w-[280px] sm:w-[320px] aspect-[3/4] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-500 cursor-pointer flyer-slide relative" data-title="Ofertas de Padaria" data-desc="Pães artesanais e confeitaria fina diária.">
-          <img alt="Padaria Pedralli" class="w-full h-full object-cover" src="assets/ofertas/flyer_padaria.jpg" loading="lazy" />
-          <div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-            <span class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 hover:scale-100 transition-all duration-300">
-              <i class="fa-solid fa-magnifying-glass-plus text-sm"></i>
-            </span>
+        <!-- Skeleton Slide 2 -->
+        <div class="snap-start shrink-0 w-[280px] sm:w-[320px] aspect-[3/4] rounded-3xl overflow-hidden border border-outline-variant/30 bg-surface shadow-sm animate-pulse flex flex-col items-center justify-center p-6 gap-4">
+          <div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary/20">
+            <i class="fa-solid fa-spinner animate-spin text-xl text-gold-accent"></i>
           </div>
+          <div class="w-3/4 h-3 bg-primary/10 rounded-full"></div>
+          <div class="w-1/2 h-2 bg-primary/5 rounded-full"></div>
         </div>
 
-        <!-- Slide 3 (Gourmet) -->
-        <div class="snap-start shrink-0 w-[280px] sm:w-[320px] aspect-[3/4] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-500 cursor-pointer flyer-slide relative" data-title="Seleção Gourmet" data-desc="Vinhos premium e queijos nobres para sua mesa.">
-          <img alt="Gourmet Pedralli" class="w-full h-full object-cover" src="assets/ofertas/flyer_gourmet.jpg" loading="lazy" />
-          <div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-            <span class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 hover:scale-100 transition-all duration-300">
-              <i class="fa-solid fa-magnifying-glass-plus text-sm"></i>
-            </span>
+        <!-- Skeleton Slide 3 -->
+        <div class="snap-start shrink-0 w-[280px] sm:w-[320px] aspect-[3/4] rounded-3xl overflow-hidden border border-outline-variant/30 bg-surface shadow-sm animate-pulse flex flex-col items-center justify-center p-6 gap-4">
+          <div class="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center text-primary/20">
+            <i class="fa-solid fa-spinner animate-spin text-xl text-gold-accent"></i>
           </div>
+          <div class="w-3/4 h-3 bg-primary/10 rounded-full"></div>
+          <div class="w-1/2 h-2 bg-primary/5 rounded-full"></div>
         </div>
 
       </div>
@@ -1189,6 +1186,71 @@
       prevBtn?.addEventListener('click', () => {
         track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
       });
+
+      // Update arrow visibility and track alignment based on scroll and content
+      function updateCarouselLayout() {
+        requestAnimationFrame(() => {
+          const slides = track.querySelectorAll('.flyer-slide');
+          
+          if (slides.length === 0) {
+            // Empty state (no slides) -> Center the placeholder and hide navigation
+            track.style.justifyContent = 'center';
+            if (prevBtn) prevBtn.style.display = 'none';
+            if (nextBtn) nextBtn.style.display = 'none';
+            return;
+          }
+
+          const hasOverflow = track.scrollWidth > track.clientWidth;
+
+          if (hasOverflow) {
+            // Restore buttons displays
+            if (prevBtn) prevBtn.style.display = '';
+            if (nextBtn) nextBtn.style.display = '';
+            track.style.justifyContent = 'flex-start';
+
+            // Check scroll positions to show/hide arrows on edges
+            const scrollLeft = track.scrollLeft;
+            const maxScrollLeft = track.scrollWidth - track.clientWidth;
+
+            if (prevBtn) {
+              if (scrollLeft <= 5) {
+                prevBtn.style.opacity = '0';
+                prevBtn.style.pointerEvents = 'none';
+              } else {
+                prevBtn.style.opacity = '';
+                prevBtn.style.pointerEvents = '';
+              }
+            }
+
+            if (nextBtn) {
+              if (scrollLeft >= maxScrollLeft - 5) {
+                nextBtn.style.opacity = '0';
+                nextBtn.style.pointerEvents = 'none';
+              } else {
+                nextBtn.style.opacity = '';
+                nextBtn.style.pointerEvents = '';
+              }
+            }
+          } else {
+            // No overflow -> Center items and hide navigation arrows
+            track.style.justifyContent = 'center';
+            if (prevBtn) prevBtn.style.display = 'none';
+            if (nextBtn) nextBtn.style.display = 'none';
+          }
+        });
+      }
+
+      // Initial layout setup
+      updateCarouselLayout();
+
+      // Listen to scroll events to update arrows dynamically
+      track.addEventListener('scroll', updateCarouselLayout);
+
+      // Listen to window resize to handle responsiveness
+      window.addEventListener('resize', updateCarouselLayout);
+
+      // Expose globally so loadGoogleDriveOffers can trigger updates
+      window.updateFlyerCarouselLayout = updateCarouselLayout;
     }
 
     function initFlyerLightbox() {
@@ -1253,45 +1315,120 @@
       });
     }
 
-    async function loadGoogleDriveOffers() {
-      if (!GOOGLE_DRIVE_OFFERS_API) {
-        console.log("Integração do Google Drive não configurada. Usando encartes locais.");
-        initFlyerLightbox();
-        return;
+    const FALLBACK_OFFERS = [
+      {
+        name: "Hortifruti Pedralli",
+        url: "assets/ofertas/flyer_hortifruti.jpg",
+        title: "Ofertas de Hortifruti",
+        desc: "Verduras e frutas frescas direto do produtor."
+      },
+      {
+        name: "Padaria Pedralli",
+        url: "assets/ofertas/flyer_padaria.jpg",
+        title: "Ofertas de Padaria",
+        desc: "Pães artesanais e confeitaria fina diária."
+      },
+      {
+        name: "Gourmet Pedralli",
+        url: "assets/ofertas/flyer_gourmet.jpg",
+        title: "Seleção Gourmet",
+        desc: "Vinhos premium e queijos nobres para sua mesa."
       }
-      
+    ];
+
+    function renderFallbackOffers() {
       const track = document.getElementById('flyer-carousel-track');
       if (!track) return;
+      track.innerHTML = "";
+      FALLBACK_OFFERS.forEach(item => {
+        const slide = document.createElement('div');
+        slide.className = "snap-start shrink-0 w-[280px] sm:w-[320px] aspect-[3/4] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-500 cursor-pointer flyer-slide relative";
+        slide.setAttribute('data-title', item.title);
+        slide.setAttribute('data-desc', item.desc);
+        
+        slide.innerHTML = `
+          <img alt="${item.name}" class="w-full h-full object-cover" src="${item.url}" loading="lazy" />
+          <div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+            <span class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 hover:scale-100 transition-all duration-300">
+              <i class="fa-solid fa-magnifying-glass-plus text-sm"></i>
+            </span>
+          </div>
+        `;
+        track.appendChild(slide);
+      });
+    }
+
+    async function loadGoogleDriveOffers() {
+      const track = document.getElementById('flyer-carousel-track');
+      if (!track) return;
+
+      if (!GOOGLE_DRIVE_OFFERS_API) {
+        console.log("Integração do Google Drive não configurada. Usando encartes locais.");
+        renderFallbackOffers();
+        initFlyerLightbox();
+        if (typeof window.updateFlyerCarouselLayout === 'function') {
+          window.updateFlyerCarouselLayout();
+        }
+        return;
+      }
       
       try {
         const response = await fetch(GOOGLE_DRIVE_OFFERS_API);
         const data = await response.json();
         
-        if (data && data.length > 0) {
-          track.innerHTML = ""; // Limpa os mocks locais
+        if (Array.isArray(data)) {
+          track.innerHTML = ""; // Limpa os skeletons
           
-          data.forEach(item => {
-            const slide = document.createElement('div');
-            slide.className = "snap-start shrink-0 w-[280px] sm:w-[320px] aspect-[3/4] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-500 cursor-pointer flyer-slide relative";
-            slide.setAttribute('data-title', item.name.split('.')[0] || "Oferta");
-            slide.setAttribute('data-desc', "Encarte atualizado via Google Drive.");
-            
-            slide.innerHTML = `
-              <img alt="${item.name}" class="w-full h-full object-cover" src="${item.url}" loading="lazy" />
-              <div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
-                <span class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 hover:scale-100 transition-all duration-300">
-                  <i class="fa-solid fa-magnifying-glass-plus text-sm"></i>
-                </span>
+          if (data.length > 0) {
+            data.forEach(item => {
+              const slide = document.createElement('div');
+              slide.className = "snap-start shrink-0 w-[280px] sm:w-[320px] aspect-[3/4] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-500 cursor-pointer flyer-slide relative";
+              slide.setAttribute('data-title', item.name.split('.')[0] || "Oferta");
+              slide.setAttribute('data-desc', "Encarte atualizado via Google Drive.");
+              
+              slide.innerHTML = `
+                <img alt="${item.name}" class="w-full h-full object-cover" src="${item.url}" loading="lazy" />
+                <div class="absolute inset-0 bg-primary/20 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                  <span class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform scale-90 hover:scale-100 transition-all duration-300">
+                    <i class="fa-solid fa-magnifying-glass-plus text-sm"></i>
+                  </span>
+                </div>
+              `;
+              track.appendChild(slide);
+            });
+          } else {
+            // Caso a API retorne sucesso mas sem encartes (pasta vazia)
+            const emptyState = document.createElement('div');
+            emptyState.className = "w-full py-16 flex flex-col items-center justify-center text-center px-4 bg-surface border border-outline-variant/60 rounded-3xl gap-4 shadow-sm max-w-xl mx-auto";
+            emptyState.innerHTML = `
+              <div class="w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center text-primary mb-2">
+                <i class="fa-regular fa-image text-2xl text-gold-accent"></i>
               </div>
+              <div class="space-y-2">
+                <h3 class="text-xl font-bold text-primary font-serif-editorial">Novos encartes em breve</h3>
+                <p class="text-sm text-primary/70 leading-relaxed max-w-sm mx-auto font-light">
+                  Nossas ofertas da semana estão sendo preparadas com muito carinho. Entre no nosso grupo do WhatsApp para recebê-las em primeira mão assim que forem publicadas!
+                </p>
+              </div>
+              <a href="https://chat.whatsapp.com/seu-grupo-aqui" target="_blank" class="mt-2 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#20ba5a] transition-all duration-300 shadow-md hover:shadow-lg">
+                Entrar no grupo de ofertas <i class="fa-brands fa-whatsapp text-sm"></i>
+              </a>
             `;
-            track.appendChild(slide);
-          });
+            track.appendChild(emptyState);
+          }
+        } else {
+          console.warn("Retorno da API inválido. Usando encartes locais.");
+          renderFallbackOffers();
         }
       } catch (error) {
         console.error("Erro ao carregar ofertas do Google Drive, usando encartes locais como fallback:", error);
+        renderFallbackOffers();
       } finally {
-        // Initialize lightbox after load attempts
+        // Initialize lightbox and update layout after load attempts
         initFlyerLightbox();
+        if (typeof window.updateFlyerCarouselLayout === 'function') {
+          window.updateFlyerCarouselLayout();
+        }
       }
     }
     // --- END: Encartes de Ofertas Logic ---
