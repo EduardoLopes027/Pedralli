@@ -9,10 +9,12 @@
   <script src="js/tailwind.config.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/scroll-stack.css" />
 
   <!-- GSAP & ScrollTrigger CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/scroll-stack.js"></script>
 </head>
 
 <body class="bg-surface text-on-surface antialiased overflow-hidden">
@@ -193,7 +195,7 @@
   <!-- END: Scrolling Marquee -->
 
   <!-- BEGIN: Encartes de Ofertas (Carousel with Google Drive connection) -->
-  <section id="encartes" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative">
+  <section id="encartes" class="max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-6 sm:pt-24 sm:pb-8 relative">
     <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 gap-6">
       <div class="space-y-3">
         <span class="text-gold-accent text-xs font-bold tracking-[0.25em] uppercase">Encartes da Semana</span>
@@ -259,7 +261,7 @@
 
   <!-- BEGIN: Store Info Strip -->
   <section
-    class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 border-b border-outline-variant/40">
+    class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-12 sm:pt-8 sm:pb-20 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 border-b border-outline-variant/40">
 
     <div class="space-y-3 pl-6 border-l border-primary/10">
       <div class="text-xs font-bold tracking-widest uppercase text-gold-accent">01 / Localização</div>
@@ -388,7 +390,7 @@
   <!-- END: Setores Section -->
 
   <!-- BEGIN: Bazar Curado Section (GSAP Scroll-Linked Horizontal Carousel) -->
-  <section id="bazar" class="py-16 sm:py-24 border-t border-outline-variant/40 bg-surface overflow-hidden relative w-full">
+  <section id="bazar" class="py-16 sm:py-24 border-t border-outline-variant/40 bg-surface relative w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-12">
       <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6">
         <div class="space-y-3">
@@ -405,101 +407,69 @@
       </div>
     </div>
 
-    <!-- Horizontal Scrolling Track Container -->
-    <div class="w-full relative flex items-center overflow-hidden py-4" id="bazar-scroll-container">
-      <div class="flex gap-6 px-4 sm:px-6 w-max" id="bazar-scroll-track" style="will-change: transform;">
-        
-        <!-- Item 1 -->
-        <div class="w-[280px] sm:w-[350px] aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface-container relative group shadow-sm hover:shadow-lg transition-all duration-500 shrink-0">
-          <img alt="Mesa Posta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&q=80&w=600" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="font-bold text-lg font-serif-editorial italic">Mesa Posta</h4>
-            <p class="text-xs text-white/80 font-light mt-1">Pratos e aparelhos de jantar elegantes.</p>
+    <!-- ScrollStack Container – Bazar Curado -->
+    <div class="scroll-stack max-w-7xl mx-auto px-4 sm:px-6" id="bazar-scroll-stack">
+
+      <!-- Card 1: Mesa Posta -->
+      <div class="scroll-stack-item">
+        <div class="scroll-stack-card aspect-[4/3] sm:aspect-[16/9]">
+          <img alt="Mesa Posta" src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&q=80&w=1200" loading="lazy" />
+          <span class="card-index">01 / Mesa Posta</span>
+          <div class="card-overlay">
+            <h4 class="font-serif-editorial">Mesa Posta</h4>
+            <p>Pratos e aparelhos de jantar elegantes que transformam cada refeição em uma experiência única de sofisticação e bom gosto.</p>
           </div>
         </div>
-
-        <!-- Item 2 -->
-        <div class="w-[280px] sm:w-[350px] aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface-container relative group shadow-sm hover:shadow-lg transition-all duration-500 shrink-0">
-          <img alt="Utensílios de Cozinha" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=600" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="font-bold text-lg font-serif-editorial italic">Utensílios</h4>
-            <p class="text-xs text-white/80 font-light mt-1">Facas e acessórios premium de gastronomia.</p>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="w-[280px] sm:w-[350px] aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface-container relative group shadow-sm hover:shadow-lg transition-all duration-500 shrink-0">
-          <img alt="Panelas e Caçarolas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&q=80&w=600" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="font-bold text-lg font-serif-editorial italic">Panelas & Caçarolas</h4>
-            <p class="text-xs text-white/80 font-light mt-1">Preparo profissional para suas receitas.</p>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="w-[280px] sm:w-[350px] aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface-container relative group shadow-sm hover:shadow-lg transition-all duration-500 shrink-0">
-          <img alt="Copos e Taças de Cristal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1577926473059-e91d58296a20?auto=format&fit=crop&q=80&w=600" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="font-bold text-lg font-serif-editorial italic">Copos & Taças</h4>
-            <p class="text-xs text-white/80 font-light mt-1">Cristal e vidro de alta resistência.</p>
-          </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="w-[280px] sm:w-[350px] aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface-container relative group shadow-sm hover:shadow-lg transition-all duration-500 shrink-0">
-          <img alt="Organização Criativa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?auto=format&fit=crop&q=80&w=600" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="font-bold text-lg font-serif-editorial italic">Organização</h4>
-            <p class="text-xs text-white/80 font-light mt-1">Portas-temperos, potes herméticos e cestos.</p>
-          </div>
-        </div>
-
-        <!-- Item 6 -->
-        <div class="w-[280px] sm:w-[350px] aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface-container relative group shadow-sm hover:shadow-lg transition-all duration-500 shrink-0">
-          <img alt="Decoração do Lar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1603179212557-ae07204551a1?auto=format&fit=crop&q=80&w=600" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="font-bold text-lg font-serif-editorial italic">Decoração</h4>
-            <p class="text-xs text-white/80 font-light mt-1">Vasos, velas aromáticas e detalhes charmosos.</p>
-          </div>
-        </div>
-
-        <!-- Item 7 -->
-        <div class="w-[280px] sm:w-[350px] aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface-container relative group shadow-sm hover:shadow-lg transition-all duration-500 shrink-0">
-          <img alt="Café & Chá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=600" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="font-bold text-lg font-serif-editorial italic">Café & Chá</h4>
-            <p class="text-xs text-white/80 font-light mt-1">Cafeteiras, xícaras de cerâmica e bules.</p>
-          </div>
-        </div>
-
-        <!-- Item 8 -->
-        <div class="w-[280px] sm:w-[350px] aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface-container relative group shadow-sm hover:shadow-lg transition-all duration-500 shrink-0">
-          <img alt="Artigos de Servir" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1581873372796-635b67ca2008?auto=format&fit=crop&q=80&w=600" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="font-bold text-lg font-serif-editorial italic">Tábua de Servir</h4>
-            <p class="text-xs text-white/80 font-light mt-1">Madeiras nobres e petisqueiras premium.</p>
-          </div>
-        </div>
-
-        <!-- Item 9 -->
-        <div class="w-[280px] sm:w-[350px] aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface-container relative group shadow-sm hover:shadow-lg transition-all duration-500 shrink-0">
-          <img alt="Jardinagem & Flores" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&q=80&w=600" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="font-bold text-lg font-serif-editorial italic">Jardinagem & Flores</h4>
-            <p class="text-xs text-white/80 font-light mt-1">Vasos artesanais e arranjos florais.</p>
-          </div>
-        </div>
-
-        <!-- Item 10 -->
-        <div class="w-[280px] sm:w-[350px] aspect-[4/3] rounded-3xl overflow-hidden border border-outline-variant/60 bg-surface-container relative group shadow-sm hover:shadow-lg transition-all duration-500 shrink-0">
-          <img alt="Acessórios de Bar & Vinho" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&q=80&w=600" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="font-bold text-lg font-serif-editorial italic">Bar & Vinho</h4>
-            <p class="text-xs text-white/80 font-light mt-1">Decantadores, saca-rolhas e taças especiais.</p>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Card 2: Utensílios -->
+      <div class="scroll-stack-item">
+        <div class="scroll-stack-card aspect-[4/3] sm:aspect-[16/9]">
+          <img alt="Utensílios de Cozinha" src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=1200" loading="lazy" />
+          <span class="card-index">02 / Utensílios</span>
+          <div class="card-overlay">
+            <h4 class="font-serif-editorial">Utensílios Premium</h4>
+            <p>Facas, acessórios e ferramentas de gastronomia profissional para elevar suas receitas ao próximo nível.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Panelas & Caçarolas -->
+      <div class="scroll-stack-item">
+        <div class="scroll-stack-card aspect-[4/3] sm:aspect-[16/9]">
+          <img alt="Panelas e Caçarolas" src="https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&q=80&w=1200" loading="lazy" />
+          <span class="card-index">03 / Panelas</span>
+          <div class="card-overlay">
+            <h4 class="font-serif-editorial">Panelas & Caçarolas</h4>
+            <p>Preparo profissional para suas receitas com peças de alta durabilidade e design sofisticado que duram gerações.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Copos & Taças -->
+      <div class="scroll-stack-item">
+        <div class="scroll-stack-card aspect-[4/3] sm:aspect-[16/9]">
+          <img alt="Copos e Taças de Cristal" src="https://images.unsplash.com/photo-1577926473059-e91d58296a20?auto=format&fit=crop&q=80&w=1200" loading="lazy" />
+          <span class="card-index">04 / Cristais</span>
+          <div class="card-overlay">
+            <h4 class="font-serif-editorial">Copos & Taças</h4>
+            <p>Cristal e vidro de alta resistência para brindes especiais e degustações memoráveis com quem você ama.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Organização -->
+      <div class="scroll-stack-item">
+        <div class="scroll-stack-card aspect-[4/3] sm:aspect-[16/9]">
+          <img alt="Organização Criativa" src="https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?auto=format&fit=crop&q=80&w=1200" loading="lazy" />
+          <span class="card-index">05 / Organização</span>
+          <div class="card-overlay">
+            <h4 class="font-serif-editorial">Organização</h4>
+            <p>Portas-temperos, potes herméticos e cestos funcionais que trazem ordem e beleza à sua cozinha.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
   <!-- END: Bazar Curado Section -->
@@ -642,16 +612,24 @@
   <section class="bg-terracotta text-primary py-16 sm:py-24 lg:py-32 w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-center">
 
-      <div class="lg:col-span-5 space-y-6 text-left">
+      <div class="lg:col-span-5 flex flex-col gap-6 text-left">
         <span class="text-primary/70 text-xs font-bold tracking-[0.25em] uppercase">03 / Praticidade Digital</span>
         <h3 class="text-reveal text-4xl sm:text-5xl font-light leading-tight text-primary">
           Seu mercado no seu ritmo
         </h3>
+        
+        <!-- Mobile Image Wrapper (Only visible on mobile) -->
+        <div class="lg:hidden rounded-3xl overflow-hidden shadow-2xl relative group bg-white/30 p-2 border border-white/20">
+          <div class="overflow-hidden rounded-2xl aspect-[4/3] bg-[#002848] p-4">
+            <img alt="App Pedralli" class="w-full h-full object-cover rounded-xl" src="assets/app-mockup.jpg" />
+          </div>
+        </div>
+
         <p class="text-primary/80 text-sm sm:text-base leading-relaxed font-light">
           Baixe nosso aplicativo móvel. Faça compras com facilidade, aproveite cupons de desconto sob medida e gerencie
           seus pontos no clube de benefícios Pedralli.
         </p>
-        <div class="flex flex-wrap gap-3 pt-4">
+        <div class="flex flex-wrap gap-3 pt-2">
           <a class="bg-primary hover:bg-primary-light text-white px-5 py-2.5 rounded-xl flex items-center gap-2.5 transition shadow"
             href="https://apps.apple.com/br/app/supermercado-pedralli/id1564792068">
             <i class="fa-brands fa-apple text-xl"></i>
@@ -671,8 +649,9 @@
         </div>
       </div>
 
+      <!-- Desktop Image Wrapper (Only visible on desktop) -->
       <div
-        class="lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl relative group bg-white/30 p-2 border border-white/20">
+        class="hidden lg:block lg:col-span-7 rounded-3xl overflow-hidden shadow-2xl relative group bg-white/30 p-2 border border-white/20">
         <div
           class="overflow-hidden rounded-2xl aspect-[4/3] sm:aspect-[16/10] bg-[#002848] p-4 sm:p-6 clip-reveal-wrap">
           <img alt="App Pedralli" class="w-full h-full object-cover rounded-xl" src="assets/app-mockup.jpg" />
@@ -1125,41 +1104,30 @@
         ease: "sine.inOut"
       });
 
-      // 7. Horizontal Scroll Animation with Pinning for Bazar Carousel
-      const bazarTrack = document.getElementById('bazar-scroll-track');
-      if (bazarTrack) {
-        const getBazarScrollAmount = () => {
-          return bazarTrack.scrollWidth - window.innerWidth;
-        };
-
-        gsap.fromTo(bazarTrack,
-          { x: 0 },
-          {
-            x: () => -getBazarScrollAmount() - 96,
-            ease: "none",
-            scrollTrigger: {
-              trigger: "#bazar",
-              start: "top 80px",
-              end: () => "+=" + getBazarScrollAmount(),
-              scrub: 1,
-              pin: true,
-              pinSpacing: true,
-              invalidateOnRefresh: true
-            }
-          }
-        );
+      // 7. ScrollStack – Bazar Section (stacking cards on scroll)
+      const bazarStackEl = document.getElementById('bazar-scroll-stack');
+      if (bazarStackEl) {
+        window._bazarStack = new ScrollStack(bazarStackEl, {
+          stackOffset: 100,
+          itemStackDistance: 14,
+          itemDistance: 100,
+          baseScale: 1,
+          itemScale: 0.93,
+          blurAmount: 3,
+        });
       }
 
-      // 8. Pin elements with Style (Desktop only)
-      if (window.innerWidth >= 1024) {
+      // 8. Pin elements with Style (Desktop only, responsive via matchMedia)
+      let mm = gsap.matchMedia();
+      mm.add("(min-width: 1024px)", () => {
         ScrollTrigger.create({
           trigger: ".pin-container",
           start: "top top+=120",
-          end: () => "bottom bottom",
+          end: "bottom bottom",
           pin: ".pin-left",
           pinSpacing: false
         });
-      }
+      });
 
     }
 
