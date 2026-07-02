@@ -223,3 +223,15 @@ header.floating-nav {
   will-change: transform;
 }
 
+/* Initial hidden states to prevent FOUC (Flash of Unanimated Content) */
+.text-reveal {
+  opacity: 0;
+}
+.clip-reveal-wrap,
+.hero-custom-bg {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
+.timeline-item {
+  opacity: 0;
+}
+
